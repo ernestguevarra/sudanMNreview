@@ -31,7 +31,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{
-            pdfauthor={Mark Myatt and Ernest Guevarra},
+            pdfauthor={Ernest Guevarra},
             colorlinks=true,
             linkcolor=blue,
             filecolor=Maroon,
@@ -40,6 +40,46 @@
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[margin=2cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
@@ -114,7 +154,7 @@
 \bibliographystyle{plainnat}
 
 \title{\vspace{8cm} \LARGE{Review notes of the Sudan Micronutrient Survey Data}}
-\author{Mark Myatt and Ernest Guevarra}
+\author{Ernest Guevarra}
 \date{3 May 2020}
 
 \begin{document}
@@ -145,44 +185,192 @@ Given that no data dictionary or codebook has been provided with the dataset, we
 
 Table \ref{tab:varTab} summarises and describes the variables and raises potential issues needing to be addressed prior to data analysis.
 
-\begin{table}
+\begin{table}[H]
 
 \caption{\label{tab:varTab}Summary of Sudan micronutrient data variables}
 \centering
-\begin{tabular}[t]{ll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lll}
 \toprule
-Variable & Data class/type\\
+\textbf{Variable} & \textbf{Expected data class/type} & \textbf{Actual data class/type}\\
 \midrule
-state & character\\
-bc & numeric\\
-locality & numeric\\
-psu & numeric\\
-m.age & character\\
+\rowcolor{gray!6}  state & Either character giving state names or numeric giving state codes or identifiers & character\\
+bc & This is most likely referring to barcodes which should be numeric & numeric\\
+\rowcolor{gray!6}  locality & Either character giving locality names or numeric giving locality codes or identifiers & numeric\\
+psu & Numeric identifier for a PSU. Must match the numeric identifiers for PSUs in the population data & numeric\\
+\rowcolor{gray!6}  m.age & Numeric for age of mother in years & character\\
 \addlinespace
-ch.age & numeric\\
-sex & character\\
-muac & character\\
-ch.weight & character\\
-ch.height & character\\
+ch.age & Numeric for age of child in months & numeric\\
+\rowcolor{gray!6}  sex & Numeric; 1 for male and 2 for female & character\\
+muac & Numeric for MUAC in millimetres & character\\
+\rowcolor{gray!6}  ch.weight & Numeric for child weight in kilograms & character\\
+ch.height & Numeric for child height in centimetres & character\\
 \addlinespace
-ch.oedema & numeric\\
-hb & character\\
-group & character\\
-calcium & numeric\\
-crp & numeric\\
+\rowcolor{gray!6}  ch.oedema & Numeric indicating child's oedema status as being present or not present & numeric\\
+hb & Numeric for haemoglobin in g/dL & character\\
+\rowcolor{gray!6}  group & Character for type of respondent & character\\
+calcium & Numeric for serum calcium in mg/dL & numeric\\
+\rowcolor{gray!6}  crp & Numeric for c-reactive protein in mg/L & numeric\\
 \addlinespace
-ferritin & numeric\\
-iodine & numeric\\
-X18 & character\\
-X19 & character\\
+ferritin & Numeric for serum ferritin in mg/L & numeric\\
+\rowcolor{gray!6}  iodine & Numeric for urinary iodine in mg/L & numeric\\
+X18 & Unknown variable & character\\
+\rowcolor{gray!6}  X19 & Unknown variable & character\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \hypertarget{state-variable}{%
 \subsection{\texorpdfstring{\texttt{state} variable}{state variable}}\label{state-variable}}
 
-The
+The micronutrient data uses character values for the \texttt{state} variable specifying the name of the states. On review of the \texttt{state} names and comparing it with the \texttt{state} names in the locality list, we again note inconsistencies with spelling of \texttt{states} between the two datasets. Given that no other state identifiers are used in the micronutrient data, the spelling of the states in the micronutrient data will need to be edited to match the spellings of the states in the locality list.
+
+State names from the micronutrient data
+
+\begin{verbatim}
+##  [1] "Northern"       "Central Darfur" "Gezira"         "Kassala"       
+##  [5] "Red Sea"        "River Nile"     "Sennar"         "South Kordofan"
+##  [9] "West Kordofan"  "White Nile"     "East Darfur"    "West Darfur"   
+## [13] "Khartoum"       "South Darfur"   "Blue Nile"      "Gedaref"       
+## [17] "North Kordofan" "North Darfur"   NA
+\end{verbatim}
+
+State names from the full locality list
+
+\begin{verbatim}
+##  [1] "Northern"        "River Nile"      "Khartoum"        "Al-Gazeera"     
+##  [5] "Red Sea"         "Kassala"         "Al-Gadarif"      "Sinar"          
+##  [9] "Blue Nile"       "White Nile"      "North Kourdofan" "South Kourdofan"
+## [13] "West Kourdofan"  "North Darfur"    "South Darfur"    "Central Darfur" 
+## [17] "East Darfur"     "West Darfur"
+\end{verbatim}
+
+\hypertarget{locality-variable}{%
+\subsection{\texorpdfstring{\texttt{locality} variable}{locality variable}}\label{locality-variable}}
+
+The micronutrient data identifies localities as numeric identifiers. These should in theory match with the locality list. When checked against the locality list, the micronutrient data has data points that have NA value or 0 value for locality ID.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{unique}\NormalTok{(mnData}\OperatorTok{$}\NormalTok{locality)[}\OperatorTok{!}\KeywordTok{unique}\NormalTok{(mnData}\OperatorTok{$}\NormalTok{locality) }\OperatorTok{%in%}\StringTok{ }\KeywordTok{unique}\NormalTok{(locNames}\OperatorTok{$}\NormalTok{localityID)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA  0
+\end{verbatim}
+
+For the micronutrient data analysis, locality identification is not as important as state identification and PSU identification so this issue is less critical but it is noted here as this is a sign of a poorly organised dataset.
+
+\hypertarget{psu-variable}{%
+\subsection{\texorpdfstring{\texttt{psu} variable}{psu variable}}\label{psu-variable}}
+
+The \texttt{psu} variable in the micronutrient data identifies the sampling point from which data has been collected. This is a critical variable as this will determine the population weighting to be used on the specific data when state level aggregate estimates are calculated. The \texttt{psu} variable in the micronutrient data should be found in the full list of PSUs in the PSU data. We check for this below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{unique}\NormalTok{(mnData}\OperatorTok{$}\NormalTok{psu)[}\OperatorTok{!}\KeywordTok{unique}\NormalTok{(mnData}\OperatorTok{$}\NormalTok{psu) }\OperatorTok{%in%}\StringTok{ }\KeywordTok{unique}\NormalTok{(psuData}\OperatorTok{$}\NormalTok{psu)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]      NA 2302610    6864    6630 2124111 2123110  188708  620420 3103505
+## [10] 3103509   21231   20231
+\end{verbatim}
+
+and we get 12 issues with PSU identifiers in the micronutrient data not matching any PSU identifier in the PSU data with population. This is a problem as the data associated with these 12 PSU identifiers cannot be properly weighted for micronutrient data analysis.
+
+This requires FMoH and UNICEF Sudan intervention to check on why these PSUs are missing from the PSU dataset and rectify. If these cannot be rectified, the only possible approach will be to drop all data points from the micronutrient data that have these PSU identifiers. If this is done, then \textbf{\texttt{1095}} data points will have to be discarded.
+
+\hypertarget{m.age-variable}{%
+\subsection{\texorpdfstring{\texttt{m.age} variable}{m.age variable}}\label{m.age-variable}}
+
+Data for age of mother is character/string values. These will need to be converted to numeric. Assumption is that these values are in years. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{ch.age-variable}{%
+\subsection{\texorpdfstring{\texttt{ch.age} variable}{ch.age variable}}\label{ch.age-variable}}
+
+Data for age of child is numeric as expected. Assumption is that these values are in months. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{sex-variable}{%
+\subsection{\texorpdfstring{\texttt{sex} variable}{sex variable}}\label{sex-variable}}
+
+Data for sex of child is in character/string format but with a numerical encoding of 1 and 2. These will be converted to numeric format for ease of coding. Assumption is that these values correspond to 1 = Male and 2 = Female. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{muac-variable}{%
+\subsection{\texorpdfstring{\texttt{muac} variable}{muac variable}}\label{muac-variable}}
+
+Data for MUAC is in character/string format but with numerical encoding. These will be converted to numeric format. Assumption is that these values are in millimetres. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{ch.weight-and-ch.height-variable}{%
+\subsection{\texorpdfstring{\texttt{ch.weight} and \texttt{ch.height} variable}{ch.weight and ch.height variable}}\label{ch.weight-and-ch.height-variable}}
+
+Data for weight and height is in character/string format but with numerical coding. These will be converted to numeric format. Assumption is that weight values are in kilograms and height values are in centimetres. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{ch.oedema-variable}{%
+\subsection{\texorpdfstring{\texttt{ch.oedema} variable}{ch.oedema variable}}\label{ch.oedema-variable}}
+
+Data for oedema is in numeric format as below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(mnData}\OperatorTok{$}\NormalTok{ch.oedema)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    0    1    2 
+##  456   21 7899
+\end{verbatim}
+
+There are three values for oedema: 0, 1, and 2. However without a codebook, we cannot ascertain what these codes mean. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{hb-variable}{%
+\subsection{\texorpdfstring{\texttt{hb} variable}{hb variable}}\label{hb-variable}}
+
+Data for haemoglobin is in character/string format but with numerical coding. This will be coverted to numeric format. Assumption is that haemoglobin is in g/dL units. Need confirmation from FMoH and UNICEF Sudan.
+
+\hypertarget{group-variable}{%
+\subsection{\texorpdfstring{\texttt{group} variable}{group variable}}\label{group-variable}}
+
+Data for group variable is in character/string format. The groupings are confusing as shown below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(mnData}\OperatorTok{$}\NormalTok{group)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##                                                             Child 
+##                                                              9978 
+##                                         Lactating Principal carer 
+##                                                              4191 
+##                            Pregnant and lactating Principal Carer 
+##                                                                29 
+##                                      Pregnant Not Principal Carer 
+##                                                                47 
+##                                          Pregnant Principal carer 
+##                                                              1714 
+##                   Principal carer nighther pregnant nor lactating 
+##                                                              2712 
+## Woman in child bearing age (pregnancy/lactation status not known) 
+##                                                               328
+\end{verbatim}
+
+Given that there is no codebook, we eed confirmation from FMoH and UNICEF Sudan with regards to the standard grouping names that will be used for analysis. This will determine how the dataset will be subseted for corresponding analysis.
+
+\hypertarget{calcium-crp-ferritin-iodine-variables}{%
+\subsection{\texorpdfstring{\texttt{calcium,\ crp,\ ferritin,\ iodine} variables}{calcium, crp, ferritin, iodine variables}}\label{calcium-crp-ferritin-iodine-variables}}
+
+The remaining variables on micronutrient results are all numeric. But given no codebook, need confirmation from UNICEF Sudan on the units for these measurements.
+
+\hypertarget{additional-information-needed}{%
+\section{Additional information needed}\label{additional-information-needed}}
+
+Given that no prior indicator definitions for micronutrient analysis has been provided by FMoH UNICEF Sudan despite earlier requests, we again ask that indicator definitions for the micronutrients to be asssesd be proivded as soon as possible in preparation for the analysis. These indicator definitions should reflect the various groupings to which these indicators pertain.
 
 \bibliography{bibliography.bib}
 

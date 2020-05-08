@@ -1,7 +1,7 @@
 ---
 title: \vspace{8cm} \LARGE{Review notes of the Sudan Micronutrient Survey Data}
 subtitle: ""
-author: "Mark Myatt and Ernest Guevarra"
+author: "Ernest Guevarra"
 date: "3 May 2020" #'`r format(Sys.Date(), "%d %B %Y")`'
 fontsize: 12pt
 geometry: margin=2cm
@@ -90,29 +90,144 @@ names(mnData)
 
 Table \@ref(tab:varTab) summarises and describes the variables and raises potential issues needing to be addressed prior to data analysis.
 
+
+
 ```{r varTab, echo = FALSE, eval = TRUE}
 varsName <- names(mnData)
-varsClass <- NULL
+varsActual <- NULL
 
 for(i in names(mnData)) {
-  varsClass <- c(varsClass, class(mnData[[i]]))
+  varsActual <- c(varsActual, class(mnData[[i]]))
 }
 
 varsExpected <- c("Either character giving state names or numeric giving state codes or identifiers",
                   "This is most likely referring to barcodes which should be numeric",
-                  )
+                  "Either character giving locality names or numeric giving locality codes or identifiers",
+                  "Numeric identifier for a PSU. Must match the numeric identifiers for PSUs in the population data",
+                  "Numeric for age of mother in years",
+                  "Numeric for age of child in months",
+                  "Numeric; 1 for male and 2 for female",
+                  "Numeric for MUAC in millimetres",
+                  "Numeric for child weight in kilograms",
+                  "Numeric for child height in centimetres",
+                  "Numeric indicating child's oedema status as being present or not present",
+                  "Numeric for haemoglobin in g/dL",
+                  "Character for type of respondent",
+                  "Numeric for serum calcium in mg/dL",
+                  "Numeric for c-reactive protein in mg/L",
+                  "Numeric for serum ferritin in mg/L",
+                  "Numeric for urinary iodine in mg/L",
+                  "Unknown variable",
+                  "Unknown variable")
 
-tab <- data.frame(varsName, varsClass)
+tab <- data.frame(varsName, varsExpected, varsActual)
 
-kable(x = tab,
-      booktabs = TRUE,
-      caption = "Summary of Sudan micronutrient data variables",
-      row.names = FALSE,
-      col.names = c("Variable", "Data class/type"),
-      format = "latex")
+knitr::kable(x = tab,
+             booktabs = TRUE,
+             caption = "Summary of Sudan micronutrient data variables",
+             row.names = FALSE,
+             col.names = c("Variable", "Expected data class/type", "Actual data class/type"),
+             format = "latex") %>%
+  kableExtra::kable_styling(latex_options = c("HOLD_position", "striped", "scale_down")) %>%
+  kableExtra::row_spec(row = 0, bold = TRUE)
 ```
-
 
 ## ```r names(mnData)[1]``` variable
 
-The
+The micronutrient data uses character values for the `state` variable specifying the name of the states. On review of the `state` names and comparing it with the `state` names in the locality list, we again note inconsistencies with spelling of `states` between the two datasets. Given that no other state identifiers are used in the micronutrient data, the spelling of the states in the micronutrient data will need to be edited to match the spellings of the states in the locality list.
+
+```{r stateNames, echo = FALSE, eval = TRUE}
+mnStates <- unique(mnData$state)
+psuStates <- unique(psuData$state)
+locStates <- unique(locNames$state)
+```
+
+State names from the micronutrient data
+
+```{r stateNames1, echo = FALSE, eval = TRUE}
+mnStates
+```
+
+State names from the full locality list
+
+```{r stateNames2, echo = FALSE, eval = TRUE}
+locStates
+```
+
+## ```r names(mnData)[3]``` variable
+
+The micronutrient data identifies localities as numeric identifiers. These should in theory match with the locality list. When checked against the locality list, the micronutrient data has data points that have NA value or 0 value for locality ID.
+
+```{r localityID, echo = TRUE, eval = TRUE}
+unique(mnData$locality)[!unique(mnData$locality) %in% unique(locNames$localityID)]
+
+```
+
+For the micronutrient data analysis, locality identification is not as important as state identification and PSU identification so this issue is less critical but it is noted here as this is a sign of a poorly organised dataset.
+
+## ```r names(mnData)[4]``` variable
+
+The `psu` variable in the micronutrient data identifies the sampling point from which data has been collected. This is a critical variable as this will determine the population weighting to be used on the specific data when state level aggregate estimates are calculated. The `psu` variable in the micronutrient data should be found in the full list of PSUs in the PSU data. We check for this below:
+
+```{r psuID, echo = TRUE, eval = TRUE}
+unique(mnData$psu)[!unique(mnData$psu) %in% unique(psuData$psu)]
+```
+
+and we get 12 issues with PSU identifiers in the micronutrient data not matching any PSU identifier in the PSU data with population. This is a problem as the data associated with these 12 PSU identifiers cannot be properly weighted for micronutrient data analysis.
+
+This requires FMoH and UNICEF Sudan intervention to check on why these PSUs are missing from the PSU dataset and rectify. If these cannot be rectified, the only possible approach will be to drop all data points from the micronutrient data that have these PSU identifiers. If this is done, then **```r nrow(mnData[mnData$psu %in% unique(mnData$psu)[!unique(mnData$psu) %in% unique(psuData$psu)], ])```** data points will have to be discarded.
+
+## ```r names(mnData)[5]``` variable
+
+Data for age of mother is character/string values. These will need to be converted to numeric. Assumption is that these values are in years. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[6]``` variable
+
+Data for age of child is numeric as expected. Assumption is that these values are in months. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[7]``` variable
+
+Data for sex of child is in character/string format but with a numerical encoding of 1 and 2. These will be converted to numeric format for ease of coding. Assumption is that these values correspond to 1 = Male and 2 = Female. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[8]``` variable
+
+Data for MUAC is in character/string format but with numerical encoding. These will be converted to numeric format. Assumption is that these values are in millimetres. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[9]```  and ```r names(mnData)[10]``` variable
+
+Data for weight and height is in character/string format but with numerical coding. These will be converted to numeric format. Assumption is that weight values are in kilograms and height values are in centimetres. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[11]``` variable
+
+Data for oedema is in numeric format as below:
+
+```{r oedema, echo = TRUE, eval = TRUE}
+table(mnData$ch.oedema)
+```
+
+There are three values for oedema: 0, 1, and 2. However without a codebook, we cannot ascertain what these codes mean. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[12]``` variable
+
+Data for haemoglobin is in character/string format but with numerical coding. This will be coverted to numeric format. Assumption is that haemoglobin is in g/dL units. Need confirmation from FMoH and UNICEF Sudan.
+
+## ```r names(mnData)[13]``` variable
+
+Data for group variable is in character/string format. The groupings are confusing as shown below:
+
+```{r group, echo = TRUE, eval = TRUE}
+table(mnData$group)
+````
+
+Given that there is no codebook, we eed confirmation from FMoH and UNICEF Sudan with regards to the standard grouping names that will be used for analysis. This will determine how the dataset will be subseted for corresponding analysis.
+
+## ```r names(mnData)[14:17]``` variables
+
+The remaining variables on micronutrient results are all numeric. But given no codebook, need confirmation from UNICEF Sudan on the units for these measurements.
+
+# Additional information needed
+
+Given that no prior indicator definitions for micronutrient analysis has been provided by FMoH UNICEF Sudan despite earlier requests, we again ask that indicator definitions for the micronutrients to be asssesd be proivded as soon as possible in preparation for the analysis. These indicator definitions should reflect the various groupings to which these indicators pertain.
+
+
+
