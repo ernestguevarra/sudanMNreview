@@ -1,0 +1,118 @@
+---
+title: \vspace{8cm} \LARGE{Review notes of the Sudan Micronutrient Survey Data}
+subtitle: ""
+author: "Mark Myatt and Ernest Guevarra"
+date: "3 May 2020" #'`r format(Sys.Date(), "%d %B %Y")`'
+fontsize: 12pt
+geometry: margin=2cm
+documentclass: article
+classoption: a4paper
+bibliography: bibliography.bib
+link-citations: TRUE
+links-as-notes: FALSE
+colorlinks: TRUE
+linkcolor: blue
+citecolor: blue
+urlcolor: blue
+lot: false
+lof: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+knitr::knit_hooks$set(document = function(x) {
+  sub('\\usepackage[]{color}', '\\usepackage{xcolor}', x, fixed = TRUE)
+  }
+)
+
+if(!require(rgdal)) install.packages("rgdal")
+if(!require(rgeos)) install.packages("rgeos")
+if(!require(raster)) install.packages("raster")
+if(!require(maps)) install.packages("maps")
+if(!require(knitr)) install.packages("knitr")
+if(!require(kableExtra)) install.packages("kableExtra")
+if(!require(magrittr)) install.packages("magrittr")
+if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(ggmap)) install.packages("ggmap")
+if(!require(stringr)) install.packages("stringr")
+if(!require(remotes)) install.packages("remotes")
+if(!require(openxlsx)) install.packages("openxlsx")
+if(!require(RColorBrewer)) install.packages("RColorBrewer")
+
+if(!require(gadmr)) install_github("spatialworks/gadmr")
+if(!require(spatialsampler)) install_github("spatialworks/spatialsampler")
+if(!require(comoros)) install_github("spatialworks/sudan")
+
+if(!require(drlib)) install_github("dgrtwo/drlib")
+
+themeSettings <- theme_bw() +
+  theme(panel.border = element_rect(colour = "gray50",
+                                    size = 0.5),
+        panel.grid.major = element_line(linetype = 1,
+                                        size = 0.1,
+                                        colour = "gray90"),
+        panel.grid.minor = element_line(linetype = 0),
+        strip.background = element_rect(colour = "gray50",
+                                        fill = "gray70"),
+        strip.text = element_text(colour = "white", size = 16),
+        legend.text = element_text(size = 16),
+        legend.key = element_rect(linetype = 0),
+        legend.key.size = unit(0.5, "cm"),
+        legend.position = "top",
+        axis.title = element_text(size = 16),
+        axis.text.x = element_text(size = 14),
+        axis.text.y = element_text(size = 14),
+        axis.ticks = element_line(colour = "gray50", size = 0.5))
+
+mnData <- read.xlsx(xlsxFile = "data/mnData_master_Sudan_V11.xlsx")
+psuData <- read.csv("data/updatedPSU.csv", stringsAsFactors = FALSE)
+locNames <- read.csv("data/locNames.csv", stringsAsFactors = FALSE)
+```
+
+\newpage
+
+# Context
+
+This report documents our review of the national micronutrient survey data collected by the Federal Ministry of Health of Sudan supported by UNICEF in 2018-2019. This review is meant to assess the data in preparation for analysis and reporting.
+
+# Data structure
+
+Data was provided as a Microsoft Excel spreadsheet in XLSX file format with a single worksheet containing all the data. The dataset has ```r nrow(mnData)``` rows and ```r ncol(mnData)``` columns.
+
+Given that no data dictionary or codebook has been provided with the dataset, we explored the various variables (columns) of the dataset and attempted to define and describe these variables. The variables are:
+
+```{r vars, echo = FALSE, eval = TRUE}
+names(mnData)
+```
+
+Table \@ref(tab:varTab) summarises and describes the variables and raises potential issues needing to be addressed prior to data analysis.
+
+```{r varTab, echo = FALSE, eval = TRUE}
+varsName <- names(mnData)
+varsClass <- NULL
+
+for(i in names(mnData)) {
+  varsClass <- c(varsClass, class(mnData[[i]]))
+}
+
+varsExpected <- c("Either character giving state names or numeric giving state codes or identifiers",
+                  "This is most likely referring to barcodes which should be numeric",
+                  )
+
+tab <- data.frame(varsName, varsClass)
+
+kable(x = tab,
+      booktabs = TRUE,
+      caption = "Summary of Sudan micronutrient data variables",
+      row.names = FALSE,
+      col.names = c("Variable", "Data class/type"),
+      format = "latex")
+```
+
+
+## ```r names(mnData)[1]``` variable
+
+The
