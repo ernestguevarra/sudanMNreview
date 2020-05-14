@@ -1,0 +1,227 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[12pt,a4paper]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+            pdfauthor={Mark Myatt and Ernest Guevarra},
+            colorlinks=true,
+            linkcolor=blue,
+            filecolor=Maroon,
+            citecolor=blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=2cm]{geometry}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{setspace}
+%\usepackage{ebgaramond}
+
+\onehalfspacing
+
+\graphicspath{ {figures/} }
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\title{\vspace{8cm} \LARGE{Sudan Micronutrient Survey Indicators Definition}}
+\author{Mark Myatt and Ernest Guevarra}
+\date{13 May 2020}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\newpage
+
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+To aid the analysis of the Sudan Micronutrient Survey 2017-2018 data, appropriate indicators needed to be defined. The only documentation of indicators to be assessed from the survey was the last version of the S3M-II indicators list dated 16 November 2018. However, this document does not clearly define the indicators with no cut-off values provided. As such, indicator definitions were made based on a rapid literature review including micronutrient survey reports done elsewhere and reflected upon based actual available data from the survey itself to update the indicator definitions. This document presents these definitions.
+
+\hypertarget{haemoglobin}{%
+\section{Haemoglobin}\label{haemoglobin}}
+
+\hypertarget{indicators-definition-used-in-the-main-s3m-ii-survey}{%
+\subsection{Indicators definition used in the main S3M-II survey}\label{indicators-definition-used-in-the-main-s3m-ii-survey}}
+
+In the main S3M-II survey, we defined multiple indicators based on Hb data. These indicators represented the different severities of anaemia by different respondent groupings. Classification into these severity categories was based on Hb level cut-offs defined by WHO \citep{WorldHealthOrganization:2007tx, WorldHealthOrganization:2011ut} as follows:
+
+\begin{table}[H]
+
+\caption{\label{tab:hb1}Hb levels to diagnose anaemia at sea level in grams per litre (g/l)}
+\centering
+\begin{tabular}[t]{llll}
+\toprule
+\textbf{Population} & \textbf{Mild} & \textbf{Moderate} & \textbf{Severe}\\
+\midrule
+\rowcolor{gray!6}  Children 6-59 months of age & 100 - 109 & 70 - 99 & < 70\\
+Children 5-11 years of age & 110 - 114 & 80 - 109 & < 80\\
+\rowcolor{gray!6}  Children 12-14 years of age & 110 - 119 & 80 - 109 & < 80\\
+Non-pregnant women
+(15 years and above) & 110 - 119 & 80 - 109 & < 80\\
+\rowcolor{gray!6}  Pregnant women & 100 - 109 & 70 - 99 & < 70\\
+\addlinespace
+Men
+(15 years and above) & 110 - 129 & 80 - 109 & < 80\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For the Sudan S3M-II main survey, no data was collected for children 5-17 years of age and for adult men 15 years of age and above so the indicator for this age group was not calculated and reported.
+
+When categorising respondents based on the above cut-offs in the main S3M-II survey, no adjustments of Hb were done based on altitute and for smoking history as recommended by WHO \citep{WorldHealthOrganization:2007tx, WorldHealthOrganization:2011ut}.
+
+\hypertarget{proposed-indicators-definition}{%
+\subsection{Proposed indicators definition}\label{proposed-indicators-definition}}
+
+We propose to analyse the Sudan Micronutrient Survey data using the same indicator definitions used in the Sudan S3M-II main survey.
+
+\hypertarget{serum-ferritin}{%
+\section{Serum ferritin}\label{serum-ferritin}}
+
+Since no indicator definition has been made for the Sudan Micronutrient Survey based on serum ferritin values, we propose the following based on current practice described in several literature \citep[\citet{Gorstein:2007wn}, \citet{Wegmuller:2020bw}, \citet{Thurnham:2010he}]{WorldHealthOrganization:2007tx}
+
+Serum ferritin will be used to assess iron deficiency for children less than 5 and for any other individual above 5 years old. For children less than 5 years old, a cut-off for serum ferritin value of \textless{} 12 \(\mu/L\) indicates iron deficiency while for those older than 5 years old, a cut-off of \textless{} 15 \(\mu/L\) is used.
+
+However, it has been recommended that serum ferritin values be adjusted based on inflammation status ideally using both of the acute phase proteins - C-reative protein (CRP) and \(\alpha_1\)-acid glycoprotein (AGP) to yield the most unbiased estimates of iron deficiency. However, the Sudan Micronutrient Survey only assessed CRP in the samples. The recommended adjustments when only one of the active phase proteins is available is to use an appropriate multiplier to the serum ferritin value depending on inflammation status of the respondent as described below:
+
+\begin{table}[H]
+
+\caption{\label{tab:inflammation}Cut-offs to determine inflammation}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Active Phase Protein} & \textbf{Cut-off}\\
+\midrule
+\rowcolor{gray!6}  CRP & >5 mg/L\\
+AGP & >1 g/L\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assesed using CRP, the serum ferritin is adjusted by 0.65 \citep{Thurnham:2010he}.
+
+\hypertarget{calcium}{%
+\section{Calcium}\label{calcium}}
+
+Calcium is rarely assessed in population surveys. The most recent population survey that included assessment of calcium was for a national micronutrient survey in Bangladesh \citep{icddr:2013tx}. However, these biomarkers were not reported in the survey report. Instead, a paper was published in Public Health Nutrition using the same dataset and reported only mean values of serum calcium concentrations were reported for the respondent groups of interest \citep{Bromage:2016kv}.
+
+We propose to follow Bromage et al's reporting approach to calcium and will calculate mean serum calcium concentrations for each of the respondent groups of interest.
+
+\hypertarget{iodine}{%
+\section{Iodine}\label{iodine}}
+
+We will assess iodine deficiency in the adult women respondent group using urinary iodine value cut-offs \citep{Gorstein:2007wn, Wegmuller:2020bw} below:
+
+\begin{table}[H]
+
+\caption{\label{tab:iodine}Cut-offs to determine iodine deficiency}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Classification} & \textbf{Cut-off}\\
+\midrule
+\rowcolor{gray!6}  Mild & 50-99 µ/l\\
+Moderate & 20-49 µ/l\\
+\rowcolor{gray!6}  Severe & < 20 µ/l\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+\renewcommand\refname{References}
+\bibliography{bibliography.bib,micronutrients.bib}
+
+\end{document}

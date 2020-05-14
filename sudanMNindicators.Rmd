@@ -1,0 +1,176 @@
+---
+title: \vspace{8cm} \LARGE{Sudan Micronutrient Survey Indicators Definition}
+subtitle: ""
+author: "Mark Myatt and Ernest Guevarra"
+date: "13 May 2020" #'`r format(Sys.Date(), "%d %B %Y")`'
+fontsize: 12pt
+geometry: margin=2cm
+documentclass: article
+classoption: a4paper
+bibliography: [bibliography.bib, micronutrients.bib]
+link-citations: TRUE
+links-as-notes: FALSE
+colorlinks: TRUE
+linkcolor: blue
+citecolor: blue
+urlcolor: blue
+lot: false
+lof: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+
+knitr::knit_hooks$set(document = function(x) {
+  sub('\\usepackage[]{color}', '\\usepackage{xcolor}', x, fixed = TRUE)
+  }
+)
+
+if(!require(rgdal)) install.packages("rgdal")
+if(!require(rgeos)) install.packages("rgeos")
+if(!require(raster)) install.packages("raster")
+if(!require(maps)) install.packages("maps")
+if(!require(knitr)) install.packages("knitr")
+if(!require(kableExtra)) install.packages("kableExtra")
+if(!require(magrittr)) install.packages("magrittr")
+if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(ggmap)) install.packages("ggmap")
+if(!require(stringr)) install.packages("stringr")
+if(!require(remotes)) install.packages("remotes")
+if(!require(openxlsx)) install.packages("openxlsx")
+if(!require(RColorBrewer)) install.packages("RColorBrewer")
+
+if(!require(gadmr)) install_github("spatialworks/gadmr")
+if(!require(spatialsampler)) install_github("spatialworks/spatialsampler")
+if(!require(comoros)) install_github("spatialworks/sudan")
+
+if(!require(drlib)) install_github("dgrtwo/drlib")
+
+themeSettings <- theme_bw() +
+  theme(panel.border = element_rect(colour = "gray50",
+                                    size = 0.5),
+        panel.grid.major = element_line(linetype = 1,
+                                        size = 0.1,
+                                        colour = "gray90"),
+        panel.grid.minor = element_line(linetype = 0),
+        strip.background = element_rect(colour = "gray50",
+                                        fill = "gray70"),
+        strip.text = element_text(colour = "white", size = 16),
+        legend.text = element_text(size = 16),
+        legend.key = element_rect(linetype = 0),
+        legend.key.size = unit(0.5, "cm"),
+        legend.position = "top",
+        axis.title = element_text(size = 16),
+        axis.text.x = element_text(size = 14),
+        axis.text.y = element_text(size = 14),
+        axis.ticks = element_line(colour = "gray50", size = 0.5))
+
+mnData1 <- read.xlsx(xlsxFile = "data/mnData_master_Sudan_V11.xlsx")
+mnData2 <- read.xlsx(xlsxFile = "data/mnData_master_Sudan_V12.xlsx")
+psuData <- read.csv("data/updatedPSU.csv", stringsAsFactors = FALSE)
+locNames <- read.csv("data/locNames.csv", stringsAsFactors = FALSE)
+```
+
+\newpage
+
+# Background
+
+To aid the analysis of the Sudan Micronutrient Survey 2017-2018 data, appropriate indicators needed to be defined. The only documentation of indicators to be assessed from the survey was the last version of the S3M-II indicators list dated 16 November 2018. However, this document does not clearly define the indicators with no cut-off values provided. As such, indicator definitions were made based on a rapid literature review including micronutrient survey reports done elsewhere and reflected upon based actual available data from the survey itself to update the indicator definitions. This document presents these definitions.
+
+# Haemoglobin
+
+## Indicators definition used in the main S3M-II survey
+
+In the main S3M-II survey, we defined multiple indicators based on Hb data. These indicators represented the different severities of anaemia by different respondent groupings. Classification into these severity categories was based on Hb level cut-offs defined by WHO [@WorldHealthOrganization:2007tx;@WorldHealthOrganization:2011ut] as follows:
+
+```{r hb1, echo = FALSE, eval = TRUE}
+Population <- c("Children 6-59 months of age",
+                "Children 5-11 years of age",
+                "Children 12-14 years of age",
+                "Non-pregnant women\n(15 years and above)",
+                "Pregnant women",
+                "Men\n(15 years and above)")
+
+Mild <- c("100 - 109", "110 - 114", "110 - 119", "110 - 119", "100 - 109", "110 - 129")
+
+Moderate <- c("70 - 99", "80 - 109", "80 - 109", "80 - 109", "70 - 99", "80 - 109")
+
+Severe <- c("< 70", "< 80", "< 80", "< 80", "< 70", "< 80")
+
+tab <- data.frame(Population, Mild, Moderate, Severe, stringsAsFactors = FALSE)
+
+knitr::kable(x = tab,
+             booktabs = TRUE,
+             caption = "Hb levels to diagnose anaemia at sea level in grams per litre (g/l)",
+             row.names = FALSE,
+             format = "latex") %>%
+  kableExtra::kable_styling(latex_options = c("HOLD_position", "striped")) %>%
+  kableExtra::row_spec(row = 0, bold = TRUE)
+```
+
+For the Sudan S3M-II main survey, no data was collected for children 5-17 years of age and for adult men 15 years of age and above so the indicator for this age group was not calculated and reported.
+
+When categorising respondents based on the above cut-offs in the main S3M-II survey, no adjustments of Hb were done based on altitute and for smoking history as recommended by WHO [@WorldHealthOrganization:2007tx;@WorldHealthOrganization:2011ut].
+
+## Proposed indicators definition
+
+We propose to analyse the Sudan Micronutrient Survey data using the same indicator definitions used in the Sudan S3M-II main survey.
+
+# Serum ferritin
+
+Since no indicator definition has been made for the Sudan Micronutrient Survey based on serum ferritin values, we propose the following based on current practice described in several literature [@WorldHealthOrganization:2007tx, @Gorstein:2007wn, @Wegmuller:2020bw, @Thurnham:2010he]
+
+Serum ferritin will be used to assess iron deficiency for children less than 5 and for any other individual above 5 years old. For children less than 5 years old, a cut-off for serum ferritin value of < 12 $\mu/L$ indicates iron deficiency while for those older than 5 years old, a cut-off of < 15 $\mu/L$ is used.
+
+However, it has been recommended that serum ferritin values be adjusted based on inflammation status ideally using both of the acute phase proteins - C-reative protein (CRP) and $\alpha_1$-acid glycoprotein (AGP) to yield the most unbiased estimates of iron deficiency. However, the Sudan Micronutrient Survey only assessed CRP in the samples. The recommended adjustments when only one of the active phase proteins is available is to use an appropriate multiplier to the serum ferritin value depending on inflammation status of the respondent as described below:
+
+```{r inflammation, echo = FALSE, eval = TRUE}
+col1 <- c("CRP", "AGP")
+col2 <- c(">5 mg/L", ">1 g/L")
+
+tab <- data.frame(col1, col2, stringsAsFactors = FALSE)
+
+knitr::kable(x = tab,
+             booktabs = TRUE,
+             caption = "Cut-offs to determine inflammation",
+             col.names = c("Active Phase Protein", "Cut-off"),
+             row.names = FALSE,
+             format = "latex") %>%
+  kableExtra::kable_styling(latex_options = c("HOLD_position", "striped")) %>%
+  kableExtra::row_spec(row = 0, bold = TRUE)
+```
+
+If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assesed using CRP, the serum ferritin is adjusted by 0.65 [@Thurnham:2010he].
+
+# Calcium
+
+Calcium is rarely assessed in population surveys. The most recent population survey that included assessment of calcium was for a national micronutrient survey in Bangladesh [@icddr:2013tx]. However, these biomarkers were not reported in the survey report. Instead, a paper was published in Public Health Nutrition using the same dataset and reported only mean values of serum calcium concentrations were reported for the respondent groups of interest [@Bromage:2016kv].
+
+We propose to follow Bromage et al's reporting approach to calcium and will calculate mean serum calcium concentrations for each of the respondent groups of interest.
+
+# Iodine
+
+We will assess iodine deficiency in the adult women respondent group using urinary iodine value cut-offs [@Gorstein:2007wn; @Wegmuller:2020bw] below:
+
+```{r iodine, echo = FALSE, eval = TRUE}
+col1 <- c("Mild", "Moderate", "Severe")
+col2 <- c("50-99 µ/l", "20-49 µ/l", "< 20 µ/l")
+
+tab <- data.frame(col1, col2, stringsAsFactors = FALSE)
+
+knitr::kable(x = tab,
+             booktabs = TRUE,
+             caption = "Cut-offs to determine iodine deficiency",
+             col.names = c("Classification", "Cut-off"),
+             row.names = FALSE,
+             format = "latex") %>%
+  kableExtra::kable_styling(latex_options = c("HOLD_position", "striped")) %>%
+  kableExtra::row_spec(row = 0, bold = TRUE)
+```
+
+
+\newpage
+
+# References
