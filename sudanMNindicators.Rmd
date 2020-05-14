@@ -120,7 +120,7 @@ We propose to analyse the Sudan Micronutrient Survey data using the same indicat
 
 # Serum ferritin
 
-Since no indicator definition has been made for the Sudan Micronutrient Survey based on serum ferritin values, we propose the following based on current practice described in several literature [@WorldHealthOrganization:2007tx, @Gorstein:2007wn, @Wegmuller:2020bw, @Thurnham:2010he]
+Since no indicator definition has been made for the Sudan Micronutrient Survey based on serum ferritin values, we propose the following based on current practice described in several literature [@WorldHealthOrganization:2007tx; @Gorstein:2007wn; @Wegmuller:2020bw; @Thurnham:2010he]
 
 Serum ferritin will be used to assess iron deficiency for children less than 5 and for any other individual above 5 years old. For children less than 5 years old, a cut-off for serum ferritin value of < 12 $\mu/L$ indicates iron deficiency while for those older than 5 years old, a cut-off of < 15 $\mu/L$ is used.
 
@@ -168,6 +168,73 @@ knitr::kable(x = tab,
              format = "latex") %>%
   kableExtra::kable_styling(latex_options = c("HOLD_position", "striped")) %>%
   kableExtra::row_spec(row = 0, bold = TRUE)
+```
+
+# Summary
+
+Given these indicator definition, we propose the following list of indicators to be analysed and reported for the Sudan Micronutrient Survey.
+
+```{r indicators, echo = FALSE, eval = TRUE}
+Category <- c(rep("Anaemia", 12), 
+              rep("Iron deficiency", 6),
+              rep("Inflammation", 6),
+              rep("Iodine deficiency", 3), 
+              rep("Calcium levels", 12))
+
+Indicators <- c("Mean haemoglobin in children 6-59 months old",
+                "Mild anaemia in children 6-59 months old",
+                "Moderate anaemia in children 6-59 months old",
+                "Severe anaemia in children 6-59 months old",
+                "Mean haemoglobin in non-pregnant women of reproductive age",
+                "Mild anaemia in non-pregnant women of reproductive age",
+                "Moderate anaemia in non-pregnant women of reproductive age",
+                "Severe anaemia in non-pregnant women of reproductive age",
+                "Mean haemoglobin in pregnant women",
+                "Mild anaemia in pregnant women",
+                "Moderate anaemia in pregnant women",
+                "Severe anaemia in pregnant women",
+                "Mean serum ferritin in children 6-59 months old",
+                "Mean serum ferritin in non-pregnant women of reproductive age",
+                "Mean serum ferritin in pregnant women",
+                "Iron-deficient children 6-59 months old",
+                "Iron-deficient non-pregnant women of reproductive age",
+                "Iron-deficient pregnant women",
+                "Mean serum c-reactive protein in children 6-59 months old",
+                "Mean serum c-reactive protein in non-pregnant women of reproductve age",
+                "Mean serum c-reactive protein in pregnant women",
+                "Active inflammation in children 6-59 months old",
+                "Active inflammation in non-pregnant women of reproductive age",
+                "Active inflammation in preganant women",
+                "Mean serum calcium in children 6-59 months old",
+                "Mean serum calcium in non-pregnant women of reproductive age",
+                "Mean serum calcium in pregnant women",
+                "Mean urinary iodine in children 6-59 months old",
+                "Mean urinary iodine in non-pregnant women of reproductive age",
+                "Mean urinary iodine in pregnant women",
+                "Mild iodine deficiency in children 6-59 months old",
+                "Mild iodine deficiency in non-pregnant women of reproductive age",
+                "Mild iodine deficiency in pregnant women",
+                "Moderate iodine deficiency in children 6-59 months old",
+                "Moderate iodine deficiency in non-pregnant women of reproductive age",
+                "Moderate iodine deficiency in pregnant women",
+                "Severe iodine deficiency in children 6-59 months old",
+                "Severe iodine deficiency in non-pregnant women of reproductive age",
+                "Severe iodine deficiency in pregnant women")
+
+Type <- c(rep(c("Mean", rep("Proportion", 3)), 3),
+          rep(c(rep("Mean", 3), rep("Proportion", 3)), 2), rep("Mean", 3),
+          rep(c("Mean", rep("Proportion", 3)), 3))
+
+tab <- data.frame(Category, Indicators, Type, stringsAsFactors = FALSE)
+
+knitr::kable(x = tab,
+             booktabs = TRUE,
+             caption = "List of proposed indicators for Sudan Micronutrient Survey",
+             row.names = FALSE,
+             format = "latex") %>%
+  kableExtra::kable_styling(latex_options = c("HOLD_position", "striped", "scale_down")) %>%
+  kableExtra::row_spec(row = 0, bold = TRUE) %>%
+  kableExtra::collapse_rows(columns = 1, valign = "top")
 ```
 
 
