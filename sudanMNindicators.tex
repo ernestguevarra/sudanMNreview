@@ -123,7 +123,7 @@
 
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 }
 \newpage
@@ -133,8 +133,11 @@
 
 To aid the analysis of the Sudan National Micronutrient Survey 2017-2018 data, appropriate indicators needed to be defined. The only documentation of indicators to be assessed from the survey was the last version of the S3M-II indicators list dated 16 November 2018. However, this document does not clearly define the indicators with no cut-off values provided. As such, indicator definitions were made based on a rapid literature review including micronutrient survey reports done elsewhere and reflected upon based actual available data from the survey itself to update the indicator definitions. This document presents these definitions.
 
+\hypertarget{biomarkers-variables}{%
+\section{Biomarkers variables}\label{biomarkers-variables}}
+
 \hypertarget{haemoglobin}{%
-\section{Haemoglobin}\label{haemoglobin}}
+\subsection{Haemoglobin}\label{haemoglobin}}
 
 In the main S3M-II survey, we defined multiple indicators based on Hb data. These indicators represented the different severities of anaemia by different respondent groupings. Classification into these severity categories was based on Hb level cut-offs defined by WHO \citep{WorldHealthOrganization:2007tx, WorldHealthOrganization:2011ut} as follows:
 
@@ -259,8 +262,8 @@ Adjustments to measured Hb based on altitude will be done based on the following
 \end{tabular}
 \end{table}
 
-\hypertarget{serum-ferritin}{%
-\section{Serum ferritin}\label{serum-ferritin}}
+\hypertarget{serum-ferritin-and-c-reactive-protein}{%
+\subsection{Serum ferritin and c-reactive protein}\label{serum-ferritin-and-c-reactive-protein}}
 
 Normal serum ferritin levels range from 12 µg/L to 150 µg/L. Following are the cut-offs for serum ferritin concentration that indicate either iron depletion or iron overload \citep{WorldHealthOrganization:2007tx, Gorstein:2007wn, Wegmuller:2020bw, WorldHealthOrganization:2011ue}.
 
@@ -296,8 +299,8 @@ However, it has been recommended that serum ferritin values be adjusted based on
 \toprule
 \textbf{Active Phase Protein} & \textbf{Cut-off}\\
 \midrule
-\rowcolor{gray!6}  CRP & >5 mg/L\\
-AGP & >1 g/L\\
+\rowcolor{gray!6}  CRP & > 5 mg/L\\
+AGP & > 1 g/L\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -305,7 +308,7 @@ AGP & >1 g/L\\
 If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assessed using CRP only, the serum ferritin is adjusted by 0.65 \citep{Thurnham:2010he}.
 
 \hypertarget{calcium}{%
-\section{Calcium}\label{calcium}}
+\subsection{Calcium}\label{calcium}}
 
 The range of normal values for serum calcium is age-dependent as shown below \citep{Lietman:2010iu}:
 
@@ -341,7 +344,7 @@ The range of normal values for serum calcium is age-dependent as shown below \ci
 We propose to use these normal ranges by age to determine whether a specific respondent group is hypocalcemic or below the normal range for their age or hypercalcemic or above the normal range for their age.
 
 \hypertarget{iodine}{%
-\section{Iodine}\label{iodine}}
+\subsection{Iodine}\label{iodine}}
 
 Currently, cut-offs for urinary iodine are available for school-age children and older (6 years and older), pregnant women, and for lactating women and children aged less than 2 years.
 
@@ -389,6 +392,426 @@ Following are the various criteria for assessing iodine status in pregnant women
 \bottomrule
 \end{tabular}
 \end{table}
+
+\hypertarget{micronutrient-indicators}{%
+\section{Micronutrient indicators}\label{micronutrient-indicators}}
+
+Given the biomarkers variables described above, we propose the following indicator sets.
+
+\hypertarget{anaemia-prevalence-indicators}{%
+\subsection{Anaemia prevalence indicators}\label{anaemia-prevalence-indicators}}
+
+The anaemia indicators are:
+
+\begin{table}[H]
+
+\caption{\label{tab:anaemia1}Anaemia indicators}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{} & \textbf{}\\
+\midrule
+\rowcolor{gray!6}  AN1 & Mild anaemia in children 6-59 months\\
+AN1 & Mild anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN1 & Mild anaemia in pregnant carers\\
+AN2 & Moderate anaemia in children 6-59 months\\
+\rowcolor{gray!6}  AN2 & Moderate anaemia in non-pregnant carers\\
+\addlinespace
+AN2 & Moderate anaemia in pregnant carers\\
+\rowcolor{gray!6}  AN3 & Severe anaemia in children 6-59 months\\
+AN3 & Severe anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN3 & Severe anaemia in pregnant carers\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The anaemia indicators are calculated using data on \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and \textbf{HB} measurement (in g/L) of the respondent and on the \textbf{ALTITUDE} (in metres) of the location where the respondent resides.
+
+\hypertarget{an1-mild-anaemia}{%
+\subsubsection{AN1: Mild anaemia}\label{an1-mild-anaemia}}
+
+Indicator \textbf{AN1} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 100 g/L \textbf{\emph{and}} \textbf{HB}
+    is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 102 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 111 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 114 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 108 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 117 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 113 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 122 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 119 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 128 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 127 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 136 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 135 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L; \textbf{\emph{or}},
+  \end{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 110 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 119 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 112 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 121 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 124 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 118 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 127 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 123 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 132 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 129 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 138 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 137 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 146 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 155 g/L and \textbf{HB} is \textbf{\emph{\(\leq\)}} 164 g/L.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{an2-moderate-anaemia}{%
+\subsubsection{AN2: Moderate anaemia}\label{an2-moderate-anaemia}}
+
+Indicator \textbf{AN2} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 70 g/L \textbf{\emph{and}} \textbf{HB}
+    is \textbf{\emph{\(\leq\)}} 99 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 72 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 101 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 75 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 104 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 78 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 107 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 83 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 112 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 89 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 118 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 97 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 126 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 134 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
+  \end{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 80 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 82 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 111 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 85 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 114 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 88 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 117 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 93 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 122 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 99 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 128 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 107 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 136 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 125 g/L and \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{an3-severe-anaemia}{%
+\subsubsection{AN3: Severe anaemia}\label{an3-severe-anaemia}}
+
+Indicator \textbf{AN3} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 70 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 72 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 75 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 78 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 83 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 89 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 97 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 105 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L; \textbf{\emph{or}},
+  \end{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 80 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 82 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 85 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 88 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 93 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 99 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 107 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 125 g/L.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{serum-iron-stores-indicaotrs}{%
+\subsection{Serum iron stores indicaotrs}\label{serum-iron-stores-indicaotrs}}
+
+The serum iron stores indicators are:
+
+\begin{table}[H]
+
+\caption{\label{tab:iron-deficiency}Body iron stores indicators}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{} & \textbf{}\\
+\midrule
+\rowcolor{gray!6}  IR1 & Iron deficiency in children 6-59 months\\
+IR1 & Iron deficiency in non-pregnant carers\\
+\rowcolor{gray!6}  IR1 & Iron deficiency in pregnant carers\\
+IR2 & Iron overload in children 6-59 months\\
+\rowcolor{gray!6}  IR2 & Iron overload in non-pregnant carers\\
+\addlinespace
+IR2 & Iron overload in pregnant carers\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Serum iron stores indicators require data on \textbf{AGE}, \textbf{SEX}, \textbf{CRP} and serum \textbf{FERRITIN} concentration.
+
+\hypertarget{ir1-iron-deficiency-indicators}{%
+\subsubsection{IR1: Iron deficiency indicators}\label{ir1-iron-deficiency-indicators}}
+
+The indicator IR1 is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 6-59 months old \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 12 µg/L; or,
+  \item
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 19.8 µg/L; or,
+  \end{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 15 µg/L; or,
+  \item
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 24.75 µg/L.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ir2-iron-overload-indicators}{%
+\subsubsection{IR2: Iron overload indicators}\label{ir2-iron-overload-indicators}}
+
+The indicator IR2 is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{MALE}} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 200 µg/L; or,
+  \item
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 330 µg/L; or,
+  \end{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 150 µg/L; or,
+  \item
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 247.5 µg/L
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{acute-inflammation-indicators}{%
+\subsection{Acute inflammation indicators}\label{acute-inflammation-indicators}}
+
+Acute inflammation (AI) indicators require serum \textbf{CRP} concentration.
+
+The indicator AI is TRUE if \textbf{CRP} is \textgreater{} 5 mg/L for any respondent type.
+
+\hypertarget{calcium-stores-indicators}{%
+\subsection{Calcium stores indicators}\label{calcium-stores-indicators}}
+
+The calcium stores indicators are:
+
+\begin{table}[H]
+
+\caption{\label{tab:cal1}Serum calcium stores indicators}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{} & \textbf{}\\
+\midrule
+\rowcolor{gray!6}  CA1 & Hypocalcemia in children 6-59 months old\\
+CA1 & Hypocalcemia in non-pregnant carers\\
+\rowcolor{gray!6}  CA1 & Hypocalcemia in pregnant carers\\
+CA2 & Hypercalcemia in children 6-59 months old\\
+\rowcolor{gray!6}  CA2 & Hypercalcemia in non-pregnant carers\\
+\addlinespace
+CA2 & Hypercalcemia in pregnant carers\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The serum calcium stores indicators require \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and serum \textbf{CALCIUM} concentration.
+
+\hypertarget{ca1-hypocalcemia-indicators}{%
+\subsubsection{CA1: Hypocalcemia indicators}\label{ca1-hypocalcemia-indicators}}
+
+The indicator CA1 is TRUE if \ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 12 and 59 months \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textless{}}} 9.4 mg/dL; \textbf{\emph{or}},
+\item
+  \textbf{AGE} of respondent is \textbf{\emph{\textgreater{}}} 12 years and \textbf{\emph{\(\leq\)}} 70 years \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \{\textbf{NOT PREGNANT}) \textbf{\emph{or}} (\textbf{PREGNANT})\} \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textless{}}} 8.8 mg/dL.
+\end{itemize}
+
+\hypertarget{ca2-hypercalcemia-indicators}{%
+\subsubsection{CA2: Hypercalcemia indicators}\label{ca2-hypercalcemia-indicators}}
+
+The indicator CA2 is TRUE if \ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 12 and 59 months \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textgreater{}}} 10.8 mg/dL; \textbf{\emph{or}},
+\item
+  \textbf{AGE} of respondent is \textbf{\emph{\textgreater{}}} 12 years and \textbf{\emph{\(\leq\)}} 70 years \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \{\textbf{NOT PREGNANT}) \textbf{\emph{or}} (\textbf{PREGNANT})\} \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textgreater{}}} 10.0 mg/dL.
+\end{itemize}
+
+\hypertarget{iodine-concentration-indicators}{%
+\subsection{Iodine concentration indicators}\label{iodine-concentration-indicators}}
+
+The iodine concentration indicators are:
+
+\begin{table}[H]
+
+\caption{\label{tab:iodl1}Iodine concentration indicators}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{} & \textbf{}\\
+\midrule
+\rowcolor{gray!6}  ID1 & Insufficient iodine in children less than 24 months old\\
+ID1 & Insufficient iodine in lactating carers\\
+\rowcolor{gray!6}  ID1 & Insufficient iodine in pregnant carers\\
+ID2 & Mild iodine deficiency in non-pregnant non-lactating carers\\
+\rowcolor{gray!6}  ID3 & Moderate iodine deficiency in non-pregnant non-lactating carers\\
+\addlinespace
+ID4 & Severe iodine deficiency in non-pregnant non-lactating carers\\
+\rowcolor{gray!6}  ID5 & Excessive iodine in pregnant carers\\
+ID5 & Excessive iodine in non-pregnant non-lactating carers\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The iodine concentration indicators require \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and \textbf{LACTATION} status and urinary \textbf{IODINE} concentration.
+
+\hypertarget{id1-iodine-insufficiency-indicator}{%
+\subsubsection{ID1: Iodine insufficiency indicator}\label{id1-iodine-insufficiency-indicator}}
+
+The ID1 indicator is TRUE if \ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} is less than 24 months old \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 100 g/L; \textbf{\emph{or}},
+\item
+  \textbf{AGE} is between 15 and 49 years old \emph{\textbf{and} \textbf{LACTATING} }\textbf{and}* urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 100 g/L; \textbf{\emph{or}},
+\item
+  \textbf{AGE} is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 150 g/L; \textbf{\emph{or}},
+\end{itemize}
+
+\hypertarget{id2-mild-iodine-deficiency}{%
+\subsubsection{ID2: Mild iodine deficiency}\label{id2-mild-iodine-deficiency}}
+
+The ID2 indicator is TRUE if \ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 50 g/L \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\leq\)}} 99 g/L.
+\end{itemize}
+
+\hypertarget{id3-moderate-iodine-deficiency}{%
+\subsubsection{ID3: Moderate iodine deficiency}\label{id3-moderate-iodine-deficiency}}
+
+The ID3 indicator is TRUE if \ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 20 g/L \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\leq\)}} 49 g/L.
+\end{itemize}
+
+\hypertarget{id4-severe-iodine-deficiency}{%
+\subsubsection{ID4: Severe iodine deficiency}\label{id4-severe-iodine-deficiency}}
+
+The ID4 indicator is TRUE if \ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 20 g/L.
+\end{itemize}
+
+\hypertarget{id5-excessive-iodine}{%
+\subsubsection{ID5: Excessive iodine}\label{id5-excessive-iodine}}
+
+The ID5 indicator is TRUE if \ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 300; or,
+\item
+  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 500.
+\end{itemize}
 
 \hypertarget{summary}{%
 \section{Summary}\label{summary}}
@@ -483,6 +906,8 @@ In addition, we will summarise the biomarker values using the usual 6 figure sum
 
 \caption{Example violin plot for Hb in children 6-59 months sample by state}\label{fig:violin}
 \end{figure}
+
+For absurdly high or low outliers such as that in State 17, we propose to winsorize with the aim of discarding as little data as possible by brining down high values or bringing up low values enough that no bias is introduced into the estimate of mean values.
 
 \newpage
 
