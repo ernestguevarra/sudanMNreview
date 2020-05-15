@@ -1,6 +1,6 @@
 ---
 #title: \vspace{8cm} \LARGE{Sudan Micronutrient Survey Indicators Definition}
-title: Sudan Micronutrient Survey Indicators Definition
+title: Sudan National Micronutrient Survey Indicators Definition
 subtitle: ""
 author: "Mark Myatt and Ernest Guevarra"
 date: "13 May 2020" #'`r format(Sys.Date(), "%d %B %Y")`'
@@ -85,7 +85,7 @@ sudanAlt <- raster(x = "data/srtm/SDN_alt.vrt")
 
 # Background
 
-To aid the analysis of the Sudan Micronutrient Survey 2017-2018 data, appropriate indicators needed to be defined. The only documentation of indicators to be assessed from the survey was the last version of the S3M-II indicators list dated 16 November 2018. However, this document does not clearly define the indicators with no cut-off values provided. As such, indicator definitions were made based on a rapid literature review including micronutrient survey reports done elsewhere and reflected upon based actual available data from the survey itself to update the indicator definitions. This document presents these definitions.
+To aid the analysis of the Sudan National Micronutrient Survey 2017-2018 data, appropriate indicators needed to be defined. The only documentation of indicators to be assessed from the survey was the last version of the S3M-II indicators list dated 16 November 2018. However, this document does not clearly define the indicators with no cut-off values provided. As such, indicator definitions were made based on a rapid literature review including micronutrient survey reports done elsewhere and reflected upon based actual available data from the survey itself to update the indicator definitions. This document presents these definitions.
 
 # Haemoglobin
 
@@ -116,9 +116,9 @@ knitr::kable(x = tab,
   kableExtra::row_spec(row = 0, bold = TRUE)
 ```
 
-For the Sudan S3M-II main survey, no data was collected for children 5-17 years of age and for adult men 15 years of age and above so the indicator for this age group was not calculated and reported. When categorising respondents based on the above cut-offs in the main S3M-II survey, no adjustments to Hb were done based on altitute and for smoking history as recommended by WHO [@WorldHealthOrganization:2007tx;@WorldHealthOrganization:2011ut].
+For the Sudan S3M-II main survey, no data was collected for children 5-17 years of age and for adult men 15 years of age and above so the indicator for this age group was not calculated and reported. When categorising respondents based on the above cut-offs in the main S3M-II survey, no adjustments to Hb were done based on altitude and for smoking history as recommended by WHO [@WorldHealthOrganization:2007tx;@WorldHealthOrganization:2011ut].
 
-We propose to analyse the Sudan Micronutrient Survey data using the same indicator definitions used in the Sudan S3M-II main survey. We also propose to adjust Hb based on altitutde of the PSU from where the data was collected. Altitude data will be gathered from publicly available elevation model data (such as the Shuttle Radar Topography Mission or SRTM data that is available freely through various outlets for Sudan) if no altitute data can be provided by UNICEF. Map below shows elevation for Sudan based on publicly available SRTM data [@cgiar:2020].
+We propose to analyse the Sudan National Micronutrient Survey data using the same indicator definitions used in the Sudan S3M-II main survey. We also propose to adjust Hb based on altitude of the PSU from where the data was collected. Altitude data will be gathered from publicly available elevation model data (such as the Shuttle Radar Topography Mission or SRTM data that is available freely through various outlets for Sudan) if no altitude data can be provided by UNICEF. Map below shows elevation for Sudan based on publicly available SRTM data [@cgiar:2020].
 
 ```{r elevation1, echo = FALSE, eval = TRUE, fig.cap = "Shuttle Radar Topography Mission (SRTM) 90m Digital Elevation Model (DEM) for Sudan overlaid with the Sudan National Micronutrient survey primary sampling unit locations", fig.width = 10, fig.height = 10, fig.align = "center", fig.pos = "H"}
 mnData_coords <- merge(psuData[ , c("psu", "longitude", "latitude")], mnData2, by = "psu")
@@ -208,7 +208,7 @@ knitr::kable(x = tab,
 
 Serum ferritin will be used to assess iron deficiency for children less than 5 and for any other individual above 5 years old. For children less than 5 years old, a cut-off for serum ferritin value of < 12 $\mu/L$ indicates iron deficiency while for those older than 5 years old, a cut-off of < 15 $\mu/L$ is used.
 
-However, it has been recommended that serum ferritin values be adjusted based on inflammation status ideally using both of the acute phase proteins - C-reative protein (CRP) and $\alpha_1$-acid glycoprotein (AGP) to yield the most unbiased estimates of iron deficiency. However, the Sudan Micronutrient Survey only assessed CRP in the samples. The recommended adjustments when only one of the active phase proteins is available is to use an appropriate multiplier to the serum ferritin value depending on inflammation status of the respondent as described below:
+However, it has been recommended that serum ferritin values be adjusted based on inflammation status ideally using both of the acute phase proteins - C-reactive protein (CRP) and $\alpha_1$-acid glycoprotein (AGP) to yield the most unbiased estimates of iron deficiency. However, the Sudan Micronutrient Survey only assessed CRP in the samples. The recommended adjustments when only one of the active phase proteins is available is to use an appropriate multiplier to the serum ferritin value depending on inflammation status of the respondent as described below:
 
 ```{r inflammation, echo = FALSE, eval = TRUE}
 col1 <- c("CRP", "AGP")
@@ -226,7 +226,7 @@ knitr::kable(x = tab,
   kableExtra::row_spec(row = 0, bold = TRUE)
 ```
 
-If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assesed using CRP only, the serum ferritin is adjusted by 0.65 [@Thurnham:2010he].
+If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assessed using CRP only, the serum ferritin is adjusted by 0.65 [@Thurnham:2010he].
 
 # Calcium
 
@@ -346,7 +346,7 @@ Indicators <- c("Mild anaemia in children 6-59 months old",
                 "Iron overload in pregnant carers",
                 "Active inflammation in children 6-59 months old",
                 "Active inflammation in non-pregnant carers",
-                "Active inflammation in preganant carers",
+                "Active inflammation in pregnant carers",
                 "Hypocalcemia in children 12-59 months old",
                 "Hypocalcemia in non-pregnant women carers",
                 "Hypocalcemia in pregnant carers",
