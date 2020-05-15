@@ -31,6 +31,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{
+            pdftitle={Sudan Micronutrient Survey Indicators Definition},
             pdfauthor={Mark Myatt and Ernest Guevarra},
             colorlinks=true,
             linkcolor=blue,
@@ -113,15 +114,18 @@
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
 
-\title{\vspace{8cm} \LARGE{Sudan Micronutrient Survey Indicators Definition}}
+\title{Sudan Micronutrient Survey Indicators Definition}
 \author{Mark Myatt and Ernest Guevarra}
 \date{13 May 2020}
 
 \begin{document}
 \maketitle
 
-\newpage
-
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
 \newpage
 
 \hypertarget{background}{%
@@ -132,14 +136,11 @@ To aid the analysis of the Sudan Micronutrient Survey 2017-2018 data, appropriat
 \hypertarget{haemoglobin}{%
 \section{Haemoglobin}\label{haemoglobin}}
 
-\hypertarget{indicators-definition-used-in-the-main-s3m-ii-survey}{%
-\subsection{Indicators definition used in the main S3M-II survey}\label{indicators-definition-used-in-the-main-s3m-ii-survey}}
-
 In the main S3M-II survey, we defined multiple indicators based on Hb data. These indicators represented the different severities of anaemia by different respondent groupings. Classification into these severity categories was based on Hb level cut-offs defined by WHO \citep{WorldHealthOrganization:2007tx, WorldHealthOrganization:2011ut} as follows:
 
 \begin{table}[H]
 
-\caption{\label{tab:hb1}Hb levels to diagnose anaemia at sea level in grams per litre (g/l)}
+\caption{\label{tab:hb1}Hb levels to diagnose anaemia at sea level in grams per litre (g/L)}
 \centering
 \begin{tabular}[t]{llll}
 \toprule
@@ -158,19 +159,130 @@ Men
 \end{tabular}
 \end{table}
 
-For the Sudan S3M-II main survey, no data was collected for children 5-17 years of age and for adult men 15 years of age and above so the indicator for this age group was not calculated and reported.
+For the Sudan S3M-II main survey, no data was collected for children 5-17 years of age and for adult men 15 years of age and above so the indicator for this age group was not calculated and reported. When categorising respondents based on the above cut-offs in the main S3M-II survey, no adjustments to Hb were done based on altitute and for smoking history as recommended by WHO \citep{WorldHealthOrganization:2007tx, WorldHealthOrganization:2011ut}.
 
-When categorising respondents based on the above cut-offs in the main S3M-II survey, no adjustments of Hb were done based on altitute and for smoking history as recommended by WHO \citep{WorldHealthOrganization:2007tx, WorldHealthOrganization:2011ut}.
+We propose to analyse the Sudan Micronutrient Survey data using the same indicator definitions used in the Sudan S3M-II main survey. We also propose to adjust Hb based on altitutde of the PSU from where the data was collected. Altitude data will be gathered from publicly available elevation model data (such as the Shuttle Radar Topography Mission or SRTM data that is available freely through various outlets for Sudan) if no altitute data can be provided by UNICEF. Map below shows elevation for Sudan based on publicly available SRTM data \citep{cgiar:2020}.
 
-\hypertarget{proposed-indicators-definition}{%
-\subsection{Proposed indicators definition}\label{proposed-indicators-definition}}
+\begin{figure}[H]
 
-We propose to analyse the Sudan Micronutrient Survey data using the same indicator definitions used in the Sudan S3M-II main survey.
+{\centering \includegraphics{sudanMNindicators_files/figure-latex/elevation1-1} 
+
+}
+
+\caption{Shuttle Radar Topography Mission (SRTM) 90m Digital Elevation Model (DEM) for Sudan overlaid with the Sudan National Micronutrient survey primary sampling unit locations}\label{fig:elevation1}
+\end{figure}
+
+With this data, we are able to extract elevation data for each of the PSUs in the Sudan Micronutrient Survey dataset.
+
+\newpage
+
+\begin{table}[H]
+
+\caption{\label{tab:elevation2}Sudan National Micronutrient Survey dataset with altitude extracted from SRTM 90m DEM}
+\centering
+\begin{tabular}[t]{rrrrlr}
+\toprule
+\textbf{psu} & \textbf{state} & \textbf{locality} & \textbf{sex} & \textbf{hb} & \textbf{altitude}\\
+\midrule
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 11.6 & \vphantom{1} 978\\
+45 & 16 & 164 & 2 & 13.9 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 12.4 & \vphantom{2} 978\\
+45 & 16 & 164 & 2 & 13.1 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 13.2 & 978\\
+\addlinespace
+45 & 16 & 164 & 2 & 10.3 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 12.4 & \vphantom{1} 978\\
+45 & 16 & 164 & 1 & 8.8000000000000007 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 11.8 & \vphantom{1} 978\\
+45 & 16 & 164 & 1 & 8.1 & 978\\
+\addlinespace
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 12.4 & \vphantom{2} 978\\
+45 & 16 & 164 & 2 & 9.1 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 13.3 & 978\\
+45 & 16 & 164 & 1 & 9.8000000000000007 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 10.4 & 978\\
+\addlinespace
+45 & 16 & 164 & 2 & 13 & \vphantom{1} 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 11.8 & \vphantom{1} 978\\
+45 & 16 & 164 & 2 & 13 & \vphantom{1} 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 8.5 & 978\\
+45 & 16 & 164 & 2 & 8.6 & 978\\
+\addlinespace
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 11.4 & 978\\
+45 & 16 & 164 & 2 & 12.6 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 8.9 & 978\\
+45 & 16 & 164 & 2 & 14.2 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 1 & 10.5 & 978\\
+\addlinespace
+45 & 16 & 164 & 2 & 11.9 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 11.6 & \vphantom{1} 978\\
+45 & 16 & 164 & 2 & 10.7 & 978\\
+\rowcolor{gray!6}  45 & 16 & 164 & 2 & 10.8 & 978\\
+53 & 16 & 164 & 1 & 10.6 & 874\\
+\addlinespace
+\rowcolor{gray!6}  53 & 16 & 164 & 2 & 10 & 874\\
+53 & 16 & 164 & NA & NA & 874\\
+\rowcolor{gray!6}  53 & 16 & 164 & 1 & 11.8 & 874\\
+53 & 16 & 164 & 2 & NA & 874\\
+\rowcolor{gray!6}  53 & 16 & 164 & 2 & 12.4 & 874\\
+\addlinespace
+53 & 16 & 164 & 1 & 7.9 & 874\\
+\rowcolor{gray!6}  53 & 16 & 164 & 1 & 8.4 & 874\\
+53 & 16 & 164 & 2 & 11.7 & 874\\
+\rowcolor{gray!6}  53 & 16 & 164 & 2 & 10.6 & 874\\
+53 & 16 & 164 & 2 & 12.5 & 874\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Adjustments to measured Hb based on altitude will be done based on the following \citep{WorldHealthOrganization:2011ut}:
+
+\begin{table}[H]
+
+\caption{\label{tab:hb2}Altitude adjustments to measured haemoglobin concentrations}
+\centering
+\begin{tabular}[t]{lr}
+\toprule
+\textbf{\makecell[c]{Altitude\\(metres above\\sea level)}} & \textbf{\makecell[c]{Measured\\haemoglobin\\adjustment\\(g/L)}}\\
+\midrule
+\rowcolor{gray!6}  < 1000 & 0\\
+1000 & -2\\
+\rowcolor{gray!6}  1500 & -5\\
+2000 & -8\\
+\rowcolor{gray!6}  2500 & -13\\
+\addlinespace
+3000 & -19\\
+\rowcolor{gray!6}  3500 & -27\\
+4000 & -35\\
+\rowcolor{gray!6}  4500 & -45\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \hypertarget{serum-ferritin}{%
 \section{Serum ferritin}\label{serum-ferritin}}
 
-Since no indicator definition has been made for the Sudan Micronutrient Survey based on serum ferritin values, we propose the following based on current practice described in several literature \citep{WorldHealthOrganization:2007tx, Gorstein:2007wn, Wegmuller:2020bw, Thurnham:2010he}
+Normal serum ferritin levels range from 12 µg/L to 150 µg/L. Following are the cut-offs for serum ferritin concentration that indicate either iron depletion or iron overload \citep{WorldHealthOrganization:2007tx, Gorstein:2007wn, Wegmuller:2020bw, WorldHealthOrganization:2011ue}.
+
+\begin{table}[H]
+
+\caption{\label{tab:ferritin}Relative extent of iron stores on the basis of serum ferritin concentration (µg/L)}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{>{\bfseries}lllll}
+\toprule
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{4}{c}{\textbf{Serum ferritin (µg/L)}} \\
+\cmidrule(l{3pt}r{3pt}){2-5}
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{Less than 5 years}} & \multicolumn{2}{c}{\textbf{5 years or older}} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+\multicolumn{1}{c}{\textbf{}} & \multicolumn{1}{c}{\textbf{Male}} & \multicolumn{1}{c}{\textbf{Female}} & \multicolumn{1}{c}{\textbf{Male}} & \multicolumn{1}{c}{\textbf{Female}}\\
+\midrule
+\rowcolor{gray!6}  Depleted iron stores & < 12 & < 12 & < 15 & < 15\\
+Depleted iron stores in the presence of infection & < 30 & < 30 & - & -\\
+\rowcolor{gray!6}  Severe risk of iron overload (adults) & - & - & > 200 & > 150\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 Serum ferritin will be used to assess iron deficiency for children less than 5 and for any other individual above 5 years old. For children less than 5 years old, a cut-off for serum ferritin value of \textless{} 12 \(\mu/L\) indicates iron deficiency while for those older than 5 years old, a cut-off of \textless{} 15 \(\mu/L\) is used.
 
@@ -190,31 +302,90 @@ AGP & >1 g/L\\
 \end{tabular}
 \end{table}
 
-If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assesed using CRP, the serum ferritin is adjusted by 0.65 \citep{Thurnham:2010he}.
+If a respondent is classified as being in an active inflammation process, then serum ferritin is adjusted accordingly. If inflammation is assesed using CRP only, the serum ferritin is adjusted by 0.65 \citep{Thurnham:2010he}.
 
 \hypertarget{calcium}{%
 \section{Calcium}\label{calcium}}
 
-Calcium is rarely assessed in population surveys. The most recent population survey that included assessment of calcium was for a national micronutrient survey in Bangladesh \citep{icddr:2013tx}. However, these biomarkers were not reported in the survey report. Instead, a paper was published in Public Health Nutrition using the same dataset and reported only mean values of serum calcium concentrations were reported for the respondent groups of interest \citep{Bromage:2016kv}.
+The range of normal values for serum calcium is age-dependent as shown below \citep{Lietman:2010iu}:
 
-We propose to follow Bromage et al's reporting approach to calcium and will calculate mean serum calcium concentrations for each of the respondent groups of interest.
+\begin{table}[H]
+
+\caption{\label{tab:calcium}Representative normal values for age for concentration of serum total calcium}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+\textbf{\makecell[c]{Target\\Group}} & \textbf{Age} & \textbf{\makecell[c]{Serum\\total calcium\\(mg/dL)}}\\
+\midrule
+\rowcolor{gray!6}   & 0-3 months & 8.8 - 11.3\\
+\cmidrule{2-3}
+\multirow[t]{-2}{*}{\raggedright\arraybackslash Infants} & 1-5 years & 9.4 - 10.8\\
+\cmidrule{1-3}
+\rowcolor{gray!6}  Children & 6-12 years & 9.4 - 10.3\\
+\cmidrule{1-3}
+ & 20 years & 9.1 - 10.2\\
+\cmidrule{2-3}
+\rowcolor{gray!6}   & 50 years & 8.9 - 10.0\\
+\cmidrule{2-3}
+\multirow[t]{-3}{*}{\raggedright\arraybackslash Men} & 70 years & 8.8 - 9.9\\
+\cmidrule{1-3}
+\rowcolor{gray!6}   & 20 years & 8.8 - 10.0\\
+\cmidrule{2-3}
+ & 50 years & 8.8 - 10.0\\
+\cmidrule{2-3}
+\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Women} & 70 years & 8.8 - 10.0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We propose to use these normal ranges by age to determine whether a specific respondent group is hypocalcemic or below the normal range for their age or hypercalcemic or above the normal range for their age.
 
 \hypertarget{iodine}{%
 \section{Iodine}\label{iodine}}
 
-We will assess iodine deficiency in the adult women respondent group using urinary iodine value cut-offs \citep{Gorstein:2007wn, Wegmuller:2020bw} below:
+Currently, cut-offs for urinary iodine are available for school-age children and older (6 years and older), pregnant women, and for lactating women and children aged less than 2 years.
+
+Following are the various criteria for assessing iodine status in school-age children and older \citep{WorldHealthOrganization:2013wl}:
 
 \begin{table}[H]
 
-\caption{\label{tab:iodine}Cut-offs to determine iodine deficiency}
+\caption{\label{tab:iodine1}Epidemiologic criteria for assessing iodine nutrition based on median urinary iodine concentration in school-age children and older}
+\centering
+\begin{tabular}[t]{ll>{\raggedright\arraybackslash}p{8cm}}
+\toprule
+\textbf{\makecell[c]{Median urinary\\iodine (µg/L)}} & \textbf{Iodine intake} & \textbf{Iodine status}\\
+\midrule
+\rowcolor{gray!6}  < 20 & Insufficient & Severe iodine deficiency\\
+20 - 49 & Insufficient & Moderate iodine deficiency\\
+\rowcolor{gray!6}  50 - 99 & Insufficient & Mild iodine deficiency\\
+100 - 199 & Adequate & Adequate iodine nutrition\\
+\rowcolor{gray!6}  200 - 299 & Above requirements & May pose a slight risk of more than adequate iodine intake in these populations\\
+\addlinespace
+≥ 300 & Excessive & Risk of adverse health consequences (iodine-induced hyperthyroidism, autoimmune thyroid disease)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Following are the various criteria for assessing iodine status in pregnant women, lactating women and children aged less than 2 years \citep{WorldHealthOrganization:2013wl}:
+
+\begin{table}[H]
+
+\caption{\label{tab:iodine2}Epidemiologic criteria for assessing iodine nutrition based on median urinary iodine concentration in pregnant women, lactating women, and children aged less than 2 years}
 \centering
 \begin{tabular}[t]{ll}
 \toprule
-\textbf{Classification} & \textbf{Cut-off}\\
+\textbf{Median urinary iodine (g/L)} & \textbf{Iodine intake}\\
 \midrule
-\rowcolor{gray!6}  Mild & 50-99 µ/l\\
-Moderate & 20-49 µ/l\\
-\rowcolor{gray!6}  Severe & < 20 µ/l\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
+\multicolumn{2}{l}{\textbf{Pregnant women}}\\
+\hspace{1em}< 150 & Insufficient\\
+\hspace{1em}150 - 249 & Adequate\\
+\rowcolor{gray!6}  \hspace{1em}250 - 499 & Above requirements\\
+\hspace{1em}500 or more & Excessive\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
+\multicolumn{2}{l}{\textbf{Lactating women and children aged less than 2 years}}\\
+\hspace{1em}< 100 & Insufficient\\
+\hspace{1em}100 or more & Adequate\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -226,97 +397,96 @@ Given these indicator definition, we propose the following list of indicators to
 
 \begin{table}[H]
 
-\caption{\label{tab:indicators}List of proposed indicators for Sudan Micronutrient Survey}
+\caption{\label{tab:indicators}List of proposed indicators for Sudan National Micronutrient Survey}
 \centering
-\resizebox{\linewidth}{!}{
 \begin{tabular}[t]{lll}
 \toprule
 \textbf{Category} & \textbf{Indicators} & \textbf{Type}\\
 \midrule
-\rowcolor{gray!6}   & Mean haemoglobin in children 6-59 months old & Mean\\
+\rowcolor{gray!6}   & Mild anaemia in children 6-59 months old & Proportion\\
 \cmidrule{2-3}
- & Mild anaemia in children 6-59 months old & Proportion\\
+ & Moderate anaemia in children 6-59 months old & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Moderate anaemia in children 6-59 months old & Proportion\\
+\rowcolor{gray!6}   & Severe anaemia in children 6-59 months old & Proportion\\
 \cmidrule{2-3}
- & Severe anaemia in children 6-59 months old & Proportion\\
+ & Mild anaemia in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mean haemoglobin in non-pregnant women of reproductive age & Mean\\
+\rowcolor{gray!6}   & Moderate anaemia in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
- & Mild anaemia in non-pregnant women of reproductive age & Proportion\\
+ & Severe anaemia in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Moderate anaemia in non-pregnant women of reproductive age & Proportion\\
+\rowcolor{gray!6}   & Mild anaemia in pregnant carers & Proportion\\
 \cmidrule{2-3}
- & Severe anaemia in non-pregnant women of reproductive age & Proportion\\
+ & Moderate anaemia in pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mean haemoglobin in pregnant women & Mean\\
-\cmidrule{2-3}
- & Mild anaemia in pregnant women & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Moderate anaemia in pregnant women & Proportion\\
-\cmidrule{2-3}
-\multirow[t]{-12}{*}{\raggedright\arraybackslash Anaemia} & Severe anaemia in pregnant women & Proportion\\
+\rowcolor{gray!6}  \multirow[t]{-9}{*}{\raggedright\arraybackslash Anaemia} & Severe anaemia in pregnant carers & Proportion\\
 \cmidrule{1-3}
-\rowcolor{gray!6}   & Mean serum ferritin in children 6-59 months old & Mean\\
+ & Iron deficiency in children 6-59 months old & Proportion\\
 \cmidrule{2-3}
- & Mean serum ferritin in non-pregnant women of reproductive age & Mean\\
+\rowcolor{gray!6}   & Iron deficiency in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mean serum ferritin in pregnant women & Mean\\
-\cmidrule{2-3}
- & Iron-deficient children 6-59 months old & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Iron-deficient non-pregnant women of reproductive age & Proportion\\
-\cmidrule{2-3}
-\multirow[t]{-6}{*}{\raggedright\arraybackslash Iron deficiency} & Iron-deficient pregnant women & Proportion\\
+\multirow[t]{-3}{*}{\raggedright\arraybackslash Iron deficiency} & Iron deficiency in pregnant carers & Proportion\\
 \cmidrule{1-3}
-\rowcolor{gray!6}   & Mean serum c-reactive protein in children 6-59 months old & Mean\\
+\rowcolor{gray!6}   & Iron overload in children 6-59 months old & Proportion\\
 \cmidrule{2-3}
- & Mean serum c-reactive protein in non-pregnant women of reproductve age & Mean\\
+ & Iron overload in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mean serum c-reactive protein in pregnant women & Mean\\
-\cmidrule{2-3}
+\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Iron overload} & Iron overload in pregnant carers & Proportion\\
+\cmidrule{1-3}
  & Active inflammation in children 6-59 months old & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Active inflammation in non-pregnant women of reproductive age & Proportion\\
+\rowcolor{gray!6}   & Active inflammation in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\multirow[t]{-6}{*}{\raggedright\arraybackslash Inflammation} & Active inflammation in preganant women & Proportion\\
+\multirow[t]{-3}{*}{\raggedright\arraybackslash Inflammation} & Active inflammation in preganant carers & Proportion\\
 \cmidrule{1-3}
-\rowcolor{gray!6}   & Mean serum calcium in children 6-59 months old & Mean\\
+\rowcolor{gray!6}   & Hypocalcemia in children 12-59 months old & Proportion\\
 \cmidrule{2-3}
- & Mean serum calcium in non-pregnant women of reproductive age & Mean\\
+ & Hypocalcemia in non-pregnant women carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Iodine deficiency} & Mean serum calcium in pregnant women & Mean\\
+\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Calcium deficiency} & Hypocalcemia in pregnant carers & Proportion\\
 \cmidrule{1-3}
- & Mean urinary iodine in children 6-59 months old & Mean\\
+ & Hypercalcemia in children 12-59 months old & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mean urinary iodine in non-pregnant women of reproductive age & Proportion\\
+\rowcolor{gray!6}   & Hypercalcemia in non-pregnant women carers & Proportion\\
 \cmidrule{2-3}
- & Mean urinary iodine in pregnant women & Proportion\\
+\multirow[t]{-3}{*}{\raggedright\arraybackslash Calcium overload} & Hypercalcemia in pregnant carers & Proportion\\
+\cmidrule{1-3}
+\rowcolor{gray!6}   & Mild iodine deficiency in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mild iodine deficiency in children 6-59 months old & Proportion\\
+ & Moderate iodine deficiency in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
- & Mild iodine deficiency in non-pregnant women of reproductive age & Mean\\
+\rowcolor{gray!6}   & Severe iodine deficiency in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Mild iodine deficiency in pregnant women & Proportion\\
+ & Iodine deficiency in pregnant carers & Proportion\\
 \cmidrule{2-3}
- & Moderate iodine deficiency in children 6-59 months old & Proportion\\
+\rowcolor{gray!6}  \multirow[t]{-5}{*}{\raggedright\arraybackslash Iodine deficiency} & Iodine deficiency in lactating carers & Proportion\\
+\cmidrule{1-3}
+ & Excessive iodine in non-pregnant carers & Proportion\\
 \cmidrule{2-3}
-\rowcolor{gray!6}   & Moderate iodine deficiency in non-pregnant women of reproductive age & Proportion\\
-\cmidrule{2-3}
- & Moderate iodine deficiency in pregnant women & Mean\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Severe iodine deficiency in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
- & Severe iodine deficiency in non-pregnant women of reproductive age & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-12}{*}{\raggedright\arraybackslash Calcium levels} & Severe iodine deficiency in pregnant women & Proportion\\
+\rowcolor{gray!6}  \multirow[t]{-2}{*}{\raggedright\arraybackslash Iodine excess} & Excessive iodine in pregnant carers & Proportion\\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
+
+\hypertarget{results-presentation}{%
+\subsection{Results presentation}\label{results-presentation}}
+
+Estimates with corresponding confidence intervals for these indicators will be presented in tables. Estimates for these indicators will also be presented as choropleth maps at the state level for which estimates will be representative of.
+
+In addition, we will summarise the biomarker values using the usual 6 figure summary (minimum value, first quantile, median, mean, third quartile and maximum value) and then present the distribution of the biomarker values as a violin plot with the range of normal values shown. An example violin plot for Hb is shown below.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{sudanMNindicators_files/figure-latex/violin-1} 
+
+}
+
+\caption{Example violin plot for Hb in children 6-59 months sample by state}\label{fig:violin}
+\end{figure}
 
 \newpage
 
 \renewcommand\refname{References}
-\bibliography{bibliography.bib,micronutrients.bib}
+\bibliography{micronutrient.bib}
 
 \end{document}
