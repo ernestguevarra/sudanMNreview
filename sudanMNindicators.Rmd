@@ -398,9 +398,9 @@ ggplot(data = hbData, mapping = aes(x = state, y = hb)) +
   geom_violin(trim = TRUE) +
   #geom_jitter(shape = 20, position = position_jitter(0.05)) +
   geom_boxplot(width = 0.2) +
-  geom_hline(yintercept = 11, colour = "darkgreen", linetype = 2) + 
-  geom_hline(yintercept = 10, colour = "orange", linetype = 2) +
-  geom_hline(yintercept = 7, colour = "red", linetype = 2) +
+  geom_hline(yintercept = 11, colour = "darkgreen", linetype = 2, size = 1.5) + 
+  geom_hline(yintercept = 10, colour = "orange", linetype = 2, size = 1.5) +
+  geom_hline(yintercept = 7, colour = "red", linetype = 2, size = 1.5) +
   themeSettings
 ```
 
