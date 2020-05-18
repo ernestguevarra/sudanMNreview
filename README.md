@@ -9,8 +9,7 @@ This repository includes the following:
 
 1. Review of the Sudan National Micronutrient Survey dataset 
 
-![](https://img.shields.io/badge/PDF-Sudan_Micronutrient_Dataset_Review-EC1C24?style=for-the-badge&logo=Adobe Acrobat Reader)
+![](https://img.shields.io/badge/PDF-Sudan Micronutrient Dataset Review-EC1C24)
 
 2. Notes on indicators to assess using the dataset from the Sudan National Micronutrient Survey dataset 
-
-![](https://img.shields.io/badge/PDF-Sudan_Micronutrient_Indicators-EC1C24?style=for-the-badge&logo=Adobe Acrobat Reader)
+![](https://img.shields.io/badge/PDF-Sudan Micronutrient Indicators-EC1C24)
