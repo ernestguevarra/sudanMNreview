@@ -41,6 +41,46 @@
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[margin=2cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
@@ -116,14 +156,14 @@
 
 \title{Sudan National Micronutrient Survey Indicators Definition}
 \author{Mark Myatt and Ernest Guevarra}
-\date{13 May 2020}
+\date{18 May 2020}
 
 \begin{document}
 \maketitle
 
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 }
 \newpage
@@ -356,7 +396,7 @@ Following are the various criteria for assessing iodine status in school-age chi
 \centering
 \begin{tabular}[t]{ll>{\raggedright\arraybackslash}p{8cm}}
 \toprule
-\textbf{\makecell[c]{Median urinary\\iodine (µg/L)}} & \textbf{Iodine intake} & \textbf{Iodine status}\\
+\textbf{\makecell[c]{Median urinary\\iodine (g/L)}} & \textbf{Iodine intake} & \textbf{Iodine status}\\
 \midrule
 \rowcolor{gray!6}  < 20 & Insufficient & Severe iodine deficiency\\
 20 - 49 & Insufficient & Moderate iodine deficiency\\
@@ -409,187 +449,373 @@ The anaemia indicators are:
 \centering
 \begin{tabular}[t]{ll}
 \toprule
-\textbf{} & \textbf{}\\
+\textbf{Indicator variable} & \textbf{Indicator Name}\\
 \midrule
-\rowcolor{gray!6}  AN1 & Mild anaemia in children 6-59 months\\
-AN1 & Mild anaemia in non-pregnant carers\\
-\rowcolor{gray!6}  AN1 & Mild anaemia in pregnant carers\\
-AN2 & Moderate anaemia in children 6-59 months\\
-\rowcolor{gray!6}  AN2 & Moderate anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN1A & Mild anaemia in children 6-59 months\\
+AN2B & Mild anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN3C & Mild anaemia in pregnant carers\\
+AN1A & Moderate anaemia in children 6-59 months\\
+\rowcolor{gray!6}  AN2B & Moderate anaemia in non-pregnant carers\\
 \addlinespace
-AN2 & Moderate anaemia in pregnant carers\\
-\rowcolor{gray!6}  AN3 & Severe anaemia in children 6-59 months\\
-AN3 & Severe anaemia in non-pregnant carers\\
-\rowcolor{gray!6}  AN3 & Severe anaemia in pregnant carers\\
+AN3C & Moderate anaemia in pregnant carers\\
+\rowcolor{gray!6}  AN1A & Severe anaemia in children 6-59 months\\
+AN2B & Severe anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN3C & Severe anaemia in pregnant carers\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The anaemia indicators are calculated using data on \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and \textbf{HB} measurement (in g/L) of the respondent and on the \textbf{ALTITUDE} (in metres) of the location where the respondent resides.
+The anaemia indicators are calculated using data on \textbf{AGE}, \textbf{PREGNANCY} status and HB measurement (in g/L) of the respondent and on the ALTITUDE (in metres) of the location where the respondent resides.
+
+\newpage
 
 \hypertarget{an1-mild-anaemia}{%
 \subsubsection{AN1: Mild anaemia}\label{an1-mild-anaemia}}
 
-Indicator \textbf{AN1} is TRUE if either\ldots{}
+\hypertarget{an1a-mild-anaemia-in-children-6-59-months-old}{%
+\paragraph{AN1A: Mild Anaemia in children 6-59 months old}\label{an1a-mild-anaemia-in-children-6-59-months-old}}
 
-\begin{itemize}
-\item
-  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN1A is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{6-59}\NormalTok{ months old AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{100}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{109}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND }
+\NormalTok{          HB is }\OperatorTok{>=}\StringTok{ }\DecValTok{102}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{111}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{105}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{114}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
 
-  \begin{itemize}
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 100 g/L \textbf{\emph{and}} \textbf{HB}
-    is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 102 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 111 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 114 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 108 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 117 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 113 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 122 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 119 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 128 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 127 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 136 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 135 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L; \textbf{\emph{or}},
-  \end{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{108}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{117}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
 
-  \begin{itemize}
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 110 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 119 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 112 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 121 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 124 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 118 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 127 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 123 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 132 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 129 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 138 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 137 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 146 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 155 g/L and \textbf{HB} is \textbf{\emph{\(\leq\)}} 164 g/L.
-  \end{itemize}
-\end{itemize}
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{113}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{122}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE is }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{119}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{128}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{127}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{136}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{135}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{144}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres and HB }\OperatorTok{>=}\StringTok{ }\DecValTok{145}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{154}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\hypertarget{anc1b-mild-amaemia-in-non-pregnant-carers}{%
+\paragraph{ANC1B: Mild amaemia in non-pregnant carers}\label{anc1b-mild-amaemia-in-non-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN1B is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years AND NOT PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{110}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{119}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{112}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{121}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{124}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{118}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{127}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{123}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{132}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{129}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{138}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{137}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{146}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{145}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{154}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+    
+\NormalTok{        ALTITUDE =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{155}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{164}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\hypertarget{an1c-mild-anaemia-in-pregnant-carers}{%
+\paragraph{AN1C: Mild anaemia in pregnant carers}\label{an1c-mild-anaemia-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN1C is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{100}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{109}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND  }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{102}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{111}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+          
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND  }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{105}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{114}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+          
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND  }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{108}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{117}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+          
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND  }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{113}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{122}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+          
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND  }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{119}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{128}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND  }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{127}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{136}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+          
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND}
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{135}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{144}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{145}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{154}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
 
 \hypertarget{an2-moderate-anaemia}{%
 \subsubsection{AN2: Moderate anaemia}\label{an2-moderate-anaemia}}
 
-Indicator \textbf{AN2} is TRUE if either\ldots{}
+\hypertarget{an2a-moderate-anaemia-in-children-6-59-months}{%
+\paragraph{AN2A: Moderate anaemia in children 6-59 months}\label{an2a-moderate-anaemia-in-children-6-59-months}}
 
-\begin{itemize}
-\item
-  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN2A is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{6-59}\NormalTok{ months old AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{70}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{99}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{72}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{101}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{75}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{104}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
 
-  \begin{itemize}
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 70 g/L \textbf{\emph{and}} \textbf{HB}
-    is \textbf{\emph{\(\leq\)}} 99 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 72 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 101 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 75 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 104 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 78 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 107 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 83 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 112 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 89 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 118 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 97 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 126 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 134 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
-  \end{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{78}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{107}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
 
-  \begin{itemize}
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 80 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 82 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 111 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 85 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 114 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 88 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 117 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 93 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 122 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 99 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 128 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 107 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 136 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 125 g/L and \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L.
-  \end{itemize}
-\end{itemize}
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{83}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{112}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{89}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{118}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{97}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{126}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{105}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{134}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE is =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND }\OperatorTok{<=}\StringTok{ }\DecValTok{144}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\hypertarget{an2b-moderate-anaemia-in-non-pregnant-carers}{%
+\paragraph{AN2B: Moderate anaemia in non-pregnant carers}\label{an2b-moderate-anaemia-in-non-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN2B is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years AND NOT PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{80}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{109}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{82}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{111}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{85}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{114}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{88}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{117}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{93}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{122}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{99}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{128}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{107}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{136}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{144}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE is =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{125}\NormalTok{ g}\OperatorTok{/}\NormalTok{L and HB }\OperatorTok{<=}\StringTok{ }\DecValTok{154}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\hypertarget{an2c-moderate-anaemia-in-pregnant-carers}{%
+\subsubsection{AN2C: Moderate anaemia in pregnant carers}\label{an2c-moderate-anaemia-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN2C is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{70}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{99}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{72}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{101}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{75}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{104}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{78}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{107}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{83}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{112}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{89}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{118}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{97}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{126}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND }
+\NormalTok{          HB }\OperatorTok{>=}\StringTok{ }\DecValTok{105}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND HB }\OperatorTok{<=}\StringTok{ }\DecValTok{134}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE is =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{>=}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND }\OperatorTok{<=}\StringTok{ }\DecValTok{144}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
 
 \hypertarget{an3-severe-anaemia}{%
 \subsubsection{AN3: Severe anaemia}\label{an3-severe-anaemia}}
 
-Indicator \textbf{AN3} is TRUE if either\ldots{}
+\hypertarget{an3a-severe-anaemia-in-children-6-59-months}{%
+\paragraph{AN3A: Severe anaemia in children 6-59 months}\label{an3a-severe-anaemia-in-children-6-59-months}}
 
-\begin{itemize}
-\item
-  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN3 is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{6-59}\NormalTok{ months old AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{70}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{72}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{75}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
 
-  \begin{itemize}
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 70 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 72 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 75 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 78 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 83 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 89 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 97 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 105 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L; \textbf{\emph{or}},
-  \end{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{78}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
 
-  \begin{itemize}
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 80 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 82 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 85 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 88 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 93 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 99 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 107 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L; \textbf{\emph{or}},
-  \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 125 g/L.
-  \end{itemize}
-\end{itemize}
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{83}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{89}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{97}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{105}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE is =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\hypertarget{anc3b-severe-anameia-in-non-pregnant-carers}{%
+\paragraph{ANC3B: Severe anameia in non-pregnant carers}\label{anc3b-severe-anameia-in-non-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ANC3B is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years AND NOT PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{80}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{82}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{85}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{88}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{93}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{99}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{107}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE is =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{125}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}   }
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\hypertarget{anc3c-severe-anaemia-in-pregnant-carers}{%
+\paragraph{ANC3C: Severe anaemia in pregnant carers}\label{anc3c-severe-anaemia-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AN3 is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{70}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{72}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{1500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{75}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{78}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{2500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{83}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{89}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{3500}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{97}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE }\OperatorTok{>=}\StringTok{ }\DecValTok{4000}\NormalTok{ metres AND ALTITUDE }\OperatorTok{<}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{105}\NormalTok{ g}\OperatorTok{/}\NormalTok{L OR}
+
+\NormalTok{        ALTITUDE is =}\StringTok{ }\DecValTok{4500}\NormalTok{ metres AND HB }\OperatorTok{<}\StringTok{ }\DecValTok{115}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
 
 \hypertarget{serum-iron-stores-indicaotrs}{%
 \subsection{Serum iron stores indicaotrs}\label{serum-iron-stores-indicaotrs}}
@@ -602,79 +828,162 @@ The serum iron stores indicators are:
 \centering
 \begin{tabular}[t]{ll}
 \toprule
-\textbf{} & \textbf{}\\
+\textbf{Indicator variable} & \textbf{Indicator name}\\
 \midrule
-\rowcolor{gray!6}  IR1 & Iron deficiency in children 6-59 months\\
-IR1 & Iron deficiency in non-pregnant carers\\
-\rowcolor{gray!6}  IR1 & Iron deficiency in pregnant carers\\
-IR2 & Iron overload in children 6-59 months\\
-\rowcolor{gray!6}  IR2 & Iron overload in non-pregnant carers\\
-\addlinespace
-IR2 & Iron overload in pregnant carers\\
+\rowcolor{gray!6}  IR1A & Iron deficiency in children 6-59 months\\
+IR1B & Iron deficiency in non-pregnant carers\\
+\rowcolor{gray!6}  IR1C & Iron deficiency in pregnant carers\\
+IR2A & Iron overload in non-pregnant carers\\
+\rowcolor{gray!6}  IR2B & Iron overload in pregnant carers\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Serum iron stores indicators require data on \textbf{AGE}, \textbf{SEX}, \textbf{CRP} and serum \textbf{FERRITIN} concentration.
+Serum iron stores indicators require data on \textbf{AGE}, \textbf{PREGNANCY} status, \textbf{CRP} and serum \textbf{FERRITIN} concentration.
 
 \hypertarget{ir1-iron-deficiency-indicators}{%
 \subsubsection{IR1: Iron deficiency indicators}\label{ir1-iron-deficiency-indicators}}
 
-The indicator IR1 is TRUE if either\ldots{}
+\hypertarget{ir1a-iron-deficiency-in-children-6-59-months}{%
+\paragraph{IR1A: Iron deficiency in children 6-59 months}\label{ir1a-iron-deficiency-in-children-6-59-months}}
 
-\begin{itemize}
-\item
-  \textbf{AGE} of respondent is between 6-59 months old \textbf{\emph{and}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IR1A is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{6-59}\NormalTok{ months old AND}
+\NormalTok{      \{}
+\NormalTok{        CRP }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{<}\StringTok{ }\DecValTok{12}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{<}\StringTok{ }\FloatTok{19.8}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
 
-  \begin{itemize}
-  \item
-    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 12 µg/L; or,
-  \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 19.8 µg/L; or,
-  \end{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}}
+\hypertarget{ir1b-iron-deficiency-in-non-pregnant-carers}{%
+\paragraph{IR1B: Iron deficiency in non-pregnant carers}\label{ir1b-iron-deficiency-in-non-pregnant-carers}}
 
-  \begin{itemize}
-  \item
-    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 15 µg/L; or,
-  \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 24.75 µg/L.
-  \end{itemize}
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IR1B is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND NOT PREGNANT AND}
+\NormalTok{      \{}
+\NormalTok{        CRP }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{<}\StringTok{ }\DecValTok{15}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{        CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{<}\StringTok{ }\FloatTok{24.75}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L}
+\NormalTok{      \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ir1c-iron-deficiency-in-pregnant-carers}{%
+\paragraph{IR1C: Iron deficiency in pregnant carers}\label{ir1c-iron-deficiency-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IR1C is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND}
+\NormalTok{    \{}
+\NormalTok{      CRP }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{<}\StringTok{ }\DecValTok{15}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{      CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{<}\StringTok{ }\FloatTok{24.75}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
 
 \hypertarget{ir2-iron-overload-indicators}{%
 \subsubsection{IR2: Iron overload indicators}\label{ir2-iron-overload-indicators}}
 
-The indicator IR2 is TRUE if either\ldots{}
+\hypertarget{ir2a-iron-overload-in-non-pregnant-carers}{%
+\paragraph{IR2A: Iron overload in non-pregnant carers}\label{ir2a-iron-overload-in-non-pregnant-carers}}
 
-\begin{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{MALE}} \textbf{\emph{and}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IR2A is }\OtherTok{TRUE} \ControlFlowTok{if}\NormalTok{ either...}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND NOT PREGNANT AND}
+\NormalTok{    \{}
+\NormalTok{      CRP }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{>}\StringTok{ }\DecValTok{150}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{      CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{>}\StringTok{ }\FloatTok{247.5}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
 
-  \begin{itemize}
-  \item
-    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 200 µg/L; or,
-  \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 330 µg/L; or,
-  \end{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}}
+\hypertarget{ir2b-iron-overload-in-pregnant-carers}{%
+\paragraph{IR2B: Iron overload in pregnant carers}\label{ir2b-iron-overload-in-pregnant-carers}}
 
-  \begin{itemize}
-  \item
-    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 150 µg/L; or,
-  \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 247.5 µg/L
-  \end{itemize}
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IR2B is }\OtherTok{TRUE} \ControlFlowTok{if}\NormalTok{ either...}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND PREGNANT AND}
+\NormalTok{    \{}
+\NormalTok{      CRP }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{>}\StringTok{ }\DecValTok{150}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L OR}
+     
+\NormalTok{      CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L AND serum FERRITIN }\OperatorTok{>}\StringTok{ }\FloatTok{247.5}\NormalTok{ µg}\OperatorTok{/}\NormalTok{L}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{acute-inflammation-indicators}{%
 \subsection{Acute inflammation indicators}\label{acute-inflammation-indicators}}
 
+The acute inflammation indicators are:
+
+\begin{table}[H]
+
+\caption{\label{tab:acute-inflammation}Acute inflammation indicators}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+\textbf{Indicator variable} & \textbf{Indicator name}\\
+\midrule
+\rowcolor{gray!6}  AI1 & Acute inflammation in children 6-59 months\\
+AI2 & Acute inflammation in non-pregnant carers\\
+\rowcolor{gray!6}  AI3 & Acute inflammation in pregnant carers\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Acute inflammation (AI) indicators require serum \textbf{CRP} concentration.
 
-The indicator AI is TRUE if \textbf{CRP} is \textgreater{} 5 mg/L for any respondent type.
+\hypertarget{ai1-acute-inflammation-in-children-6-59-months}{%
+\subsubsection{AI1: Acute inflammation in children 6-59 months}\label{ai1-acute-inflammation-in-children-6-59-months}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AI1 is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{6}\NormalTok{ and }\DecValTok{59}\NormalTok{ months old AND CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ai2-acute-inflammation-in-non-pregnant-carers}{%
+\subsubsection{AI2: Acute inflammation in non-pregnant carers}\label{ai2-acute-inflammation-in-non-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AI2 is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND }
+\NormalTok{  NOT PREGNANT AND CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ai3-acute-inflammation-in-pregnant-carers}{%
+\subsubsection{AI3: Acute inflammation in pregnant carers}\label{ai3-acute-inflammation-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AI3 is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND }
+\NormalTok{  PREGNANT AND CRP }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{ mg}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{calcium-stores-indicators}{%
 \subsection{Calcium stores indicators}\label{calcium-stores-indicators}}
@@ -687,44 +996,106 @@ The calcium stores indicators are:
 \centering
 \begin{tabular}[t]{ll}
 \toprule
-\textbf{} & \textbf{}\\
+\textbf{Indicator variable} & \textbf{Indicator name}\\
 \midrule
-\rowcolor{gray!6}  CA1 & Hypocalcemia in children 6-59 months old\\
-CA1 & Hypocalcemia in non-pregnant carers\\
-\rowcolor{gray!6}  CA1 & Hypocalcemia in pregnant carers\\
-CA2 & Hypercalcemia in children 6-59 months old\\
-\rowcolor{gray!6}  CA2 & Hypercalcemia in non-pregnant carers\\
+\rowcolor{gray!6}  CA1A & Hypocalcemia in children 12-59 months old\\
+CA1B & Hypocalcemia in non-pregnant carers\\
+\rowcolor{gray!6}  CA1C & Hypocalcemia in pregnant carers\\
+CA2A & Hypercalcemia in children 12-59 months old\\
+\rowcolor{gray!6}  CA2B & Hypercalcemia in non-pregnant carers\\
 \addlinespace
-CA2 & Hypercalcemia in pregnant carers\\
+CA2C & Hypercalcemia in pregnant carers\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 The serum calcium stores indicators require \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and serum \textbf{CALCIUM} concentration.
 
+\newpage
+
 \hypertarget{ca1-hypocalcemia-indicators}{%
 \subsubsection{CA1: Hypocalcemia indicators}\label{ca1-hypocalcemia-indicators}}
 
-The indicator CA1 is TRUE if \ldots{}
+\hypertarget{ca1a-hypocalcemia-in-children-12-59-months}{%
+\paragraph{CA1A: Hypocalcemia in children 12-59 months}\label{ca1a-hypocalcemia-in-children-12-59-months}}
 
-\begin{itemize}
-\item
-  \textbf{AGE} of respondent is between 12 and 59 months \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textless{}}} 9.4 mg/dL; \textbf{\emph{or}},
-\item
-  \textbf{AGE} of respondent is \textbf{\emph{\textgreater{}}} 12 years and \textbf{\emph{\(\leq\)}} 70 years \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \{\textbf{NOT PREGNANT}) \textbf{\emph{or}} (\textbf{PREGNANT})\} \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textless{}}} 8.8 mg/dL.
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CA1A is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{12}\NormalTok{ and }\DecValTok{59}\NormalTok{ months AND }
+\NormalTok{      serum CALCIUM }\OperatorTok{<}\StringTok{ }\FloatTok{9.4}\NormalTok{ mg}\OperatorTok{/}\NormalTok{dL}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ca1b-hypocalcemia-in-non-pregnant-carers}{%
+\paragraph{CA1B: Hypocalcemia in non-pregnant carers}\label{ca1b-hypocalcemia-in-non-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CA1B is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent }\OperatorTok{>}\StringTok{ }\DecValTok{12}\NormalTok{ years and }\OperatorTok{<=}\StringTok{ }\DecValTok{70}\NormalTok{ years AND}
+\NormalTok{      NOT PREGNANT AND serum CALCIUM }\OperatorTok{<}\StringTok{ }\FloatTok{8.8}\NormalTok{ mg}\OperatorTok{/}\NormalTok{dL}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ca1c-hypocalcemia-in-pregnant-carers}{%
+\paragraph{CA1C: Hypocalcemia in pregnant carers}\label{ca1c-hypocalcemia-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CA1C is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent }\OperatorTok{>}\StringTok{ }\DecValTok{12}\NormalTok{ years and }\OperatorTok{<=}\StringTok{ }\DecValTok{70}\NormalTok{ years AND}
+\NormalTok{      PREGNANT and serum CALCIUM }\OperatorTok{<}\StringTok{ }\FloatTok{8.8}\NormalTok{ mg}\OperatorTok{/}\NormalTok{dL}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{ca2-hypercalcemia-indicators}{%
 \subsubsection{CA2: Hypercalcemia indicators}\label{ca2-hypercalcemia-indicators}}
 
-The indicator CA2 is TRUE if \ldots{}
+\hypertarget{ca2a-hypercalcemia-in-children-12-59-months}{%
+\paragraph{CA2A: Hypercalcemia in children 12-59 months}\label{ca2a-hypercalcemia-in-children-12-59-months}}
 
-\begin{itemize}
-\item
-  \textbf{AGE} of respondent is between 12 and 59 months \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textgreater{}}} 10.8 mg/dL; \textbf{\emph{or}},
-\item
-  \textbf{AGE} of respondent is \textbf{\emph{\textgreater{}}} 12 years and \textbf{\emph{\(\leq\)}} 70 years \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \{\textbf{NOT PREGNANT}) \textbf{\emph{or}} (\textbf{PREGNANT})\} \textbf{\emph{and}} serum \textbf{CALCIUM} is \textbf{\emph{\textgreater{}}} 10.0 mg/dL.
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CA2A is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent is between }\DecValTok{12}\NormalTok{ and }\DecValTok{59}\NormalTok{ months AND }
+\NormalTok{      serum CALCIUM }\OperatorTok{>}\StringTok{ }\FloatTok{10.8}\NormalTok{ mg}\OperatorTok{/}\NormalTok{dL}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ca2b-hypercalcemia-in-non-pregnant-carers}{%
+\paragraph{CA2B: Hypercalcemia in non-pregnant carers}\label{ca2b-hypercalcemia-in-non-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CA2B is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent }\OperatorTok{>}\StringTok{ }\DecValTok{12}\NormalTok{ years and }\OperatorTok{<=}\StringTok{ }\DecValTok{70}\NormalTok{ years AND}
+\NormalTok{      NOT PREGNANT and serum CALCIUM }\OperatorTok{>}\StringTok{ }\FloatTok{10.0}\NormalTok{ mg}\OperatorTok{/}\NormalTok{dL}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ca2c-hypercalcemia-in-pregnant-carers}{%
+\paragraph{CA2C: Hypercalcemia in pregnant carers}\label{ca2c-hypercalcemia-in-pregnant-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CA2C is }\OtherTok{TRUE}\NormalTok{ IF}
+\NormalTok{  \{}
+\NormalTok{    AGE of respondent }\OperatorTok{>}\StringTok{ }\DecValTok{12}\NormalTok{ years and }\OperatorTok{<=}\StringTok{ }\DecValTok{70}\NormalTok{ years AND }
+\NormalTok{      PREGNANT and serum CALCIUM }\OperatorTok{>}\StringTok{ }\FloatTok{10.0}\NormalTok{ mg}\OperatorTok{/}\NormalTok{dL}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{iodine-concentration-indicators}{%
 \subsection{Iodine concentration indicators}\label{iodine-concentration-indicators}}
@@ -737,81 +1108,113 @@ The iodine concentration indicators are:
 \centering
 \begin{tabular}[t]{ll}
 \toprule
-\textbf{} & \textbf{}\\
+\textbf{Indicator variable} & \textbf{Indicator name}\\
 \midrule
-\rowcolor{gray!6}  ID1 & Insufficient iodine in children less than 24 months old\\
-ID1 & Insufficient iodine in lactating carers\\
-\rowcolor{gray!6}  ID1 & Insufficient iodine in pregnant carers\\
+\rowcolor{gray!6}  ID1A & Insufficient iodine in children less than 24 months old\\
+ID1B & Insufficient iodine in lactating carers\\
+\rowcolor{gray!6}  ID1C & Insufficient iodine in pregnant carers\\
 ID2 & Mild iodine deficiency in non-pregnant non-lactating carers\\
 \rowcolor{gray!6}  ID3 & Moderate iodine deficiency in non-pregnant non-lactating carers\\
 \addlinespace
 ID4 & Severe iodine deficiency in non-pregnant non-lactating carers\\
-\rowcolor{gray!6}  ID5 & Excessive iodine in pregnant carers\\
-ID5 & Excessive iodine in non-pregnant non-lactating carers\\
+\rowcolor{gray!6}  ID5A & Excessive iodine in pregnant carers\\
+ID5B & Excessive iodine in non-pregnant non-lactating carers\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 The iodine concentration indicators require \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and \textbf{LACTATION} status and urinary \textbf{IODINE} concentration.
 
+\newpage
+
 \hypertarget{id1-iodine-insufficiency-indicator}{%
 \subsubsection{ID1: Iodine insufficiency indicator}\label{id1-iodine-insufficiency-indicator}}
 
-The ID1 indicator is TRUE if \ldots{}
+\hypertarget{id1a-insufficient-iodine-in-children-6-59-months}{%
+\paragraph{ID1A: Insufficient iodine in children 6-59 months}\label{id1a-insufficient-iodine-in-children-6-59-months}}
 
-\begin{itemize}
-\item
-  \textbf{AGE} is less than 24 months old \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 100 g/L; \textbf{\emph{or}},
-\item
-  \textbf{AGE} is between 15 and 49 years old \emph{\textbf{and} \textbf{LACTATING} }\textbf{and}* urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 100 g/L; \textbf{\emph{or}},
-\item
-  \textbf{AGE} is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 150 g/L; \textbf{\emph{or}},
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID1A is }\OtherTok{TRUE}\NormalTok{ IF AGE is less than }\DecValTok{24}\NormalTok{ months old AND urinary IODINE }\OperatorTok{<}\StringTok{ }\DecValTok{100}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{id2-mild-iodine-deficiency}{%
-\subsubsection{ID2: Mild iodine deficiency}\label{id2-mild-iodine-deficiency}}
+\hypertarget{id1b-insufficient-iodine-in-lactating-carers}{%
+\paragraph{ID1B: Insufficient iodine in lactating carers}\label{id1b-insufficient-iodine-in-lactating-carers}}
 
-The ID2 indicator is TRUE if \ldots{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID1B is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND}
+\NormalTok{  LACTATING AND urinary }\OperatorTok{**}\NormalTok{IODINE}\OperatorTok{**}\StringTok{ }\ErrorTok{<}\StringTok{ }\DecValTok{100}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 50 g/L \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\leq\)}} 99 g/L.
-\end{itemize}
+\hypertarget{id1c-insufficient-iodine-in-pregnant-carers}{%
+\paragraph{ID1C: Insufficient iodine in pregnant carers}\label{id1c-insufficient-iodine-in-pregnant-carers}}
 
-\hypertarget{id3-moderate-iodine-deficiency}{%
-\subsubsection{ID3: Moderate iodine deficiency}\label{id3-moderate-iodine-deficiency}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID1C is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15}\NormalTok{ and }\DecValTok{49}\NormalTok{ years old AND }
+\NormalTok{  PREGNANT AND urinary IODINE }\OperatorTok{<}\StringTok{ }\DecValTok{150}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
-The ID3 indicator is TRUE if \ldots{}
+\hypertarget{id2-mild-iodine-deficiency-in-non-pregnant-non-lactating}{%
+\subsubsection{ID2: Mild iodine deficiency in non-pregnant non-lactating}\label{id2-mild-iodine-deficiency-in-non-pregnant-non-lactating}}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 20 g/L \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\leq\)}} 49 g/L.
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID2 is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15-49}\NormalTok{ years old AND }
+\NormalTok{  NOT PREGNANT AND NOT LACTATING AND }
+\NormalTok{  urinary IODINE }\OperatorTok{>=}\StringTok{ }\DecValTok{50}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND urinary IODINE }\OperatorTok{<=}\StringTok{ }\DecValTok{99}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{id4-severe-iodine-deficiency}{%
-\subsubsection{ID4: Severe iodine deficiency}\label{id4-severe-iodine-deficiency}}
+\hypertarget{id3-moderate-iodine-deficiency-in-non-pregnant-non-lactating}{%
+\subsubsection{ID3: Moderate iodine deficiency in non-pregnant non-lactating}\label{id3-moderate-iodine-deficiency-in-non-pregnant-non-lactating}}
 
-The ID4 indicator is TRUE if \ldots{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID3 is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15-49}\NormalTok{ years old AND }
+\NormalTok{  NOT PREGNANT AND NOT LACTATING AND }
+\NormalTok{  urinary IODINE }\OperatorTok{>=}\StringTok{ }\DecValTok{20}\NormalTok{ g}\OperatorTok{/}\NormalTok{L AND urinary IODINE }\OperatorTok{<=}\StringTok{ }\DecValTok{49}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\textless{}}} 20 g/L.
-\end{itemize}
+\hypertarget{id4-severe-iodine-deficiency-in-non-pregnant-non-lactating}{%
+\subsubsection{ID4: Severe iodine deficiency in non-pregnant non-lactating}\label{id4-severe-iodine-deficiency-in-non-pregnant-non-lactating}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID4 is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15-49}\NormalTok{ years old AND }
+\NormalTok{  NOT PREGNANT AND NOT LACTATING AND }
+\NormalTok{  urinary IODINE }\OperatorTok{<}\StringTok{ }\DecValTok{20}\NormalTok{ g}\OperatorTok{/}\NormalTok{L.}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{id5-excessive-iodine}{%
 \subsubsection{ID5: Excessive iodine}\label{id5-excessive-iodine}}
 
-The ID5 indicator is TRUE if \ldots{}
+\hypertarget{id5a-excessive-iodine-in-pregnant-carers}{%
+\paragraph{ID5A: Excessive iodine in pregnant carers}\label{id5a-excessive-iodine-in-pregnant-carers}}
 
-\begin{itemize}
-\item
-  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}} \textbf{NOT LACTATING} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 300; or,
-\item
-  \textbf{AGE} is between 15-49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}} urinary \textbf{IODINE} is \textbf{\emph{\(\geq\)}} 500.
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID5A is }\OtherTok{TRUE} \ControlFlowTok{if}\NormalTok{ AGE is between }\DecValTok{15-49}\NormalTok{ years old AND }
+\NormalTok{  NOT PREGNANT AND NOT LACTATING AND }
+\NormalTok{  urinary IODINE }\OperatorTok{>=}\StringTok{ }\DecValTok{300}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{id5b-excessive-iodine-in-non-pregnant-non-lactating-carers}{%
+\paragraph{ID5B: Excessive iodine in non-pregnant non-lactating carers}\label{id5b-excessive-iodine-in-non-pregnant-non-lactating-carers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ID5B is }\OtherTok{TRUE}\NormalTok{ IF AGE is between }\DecValTok{15-49}\NormalTok{ years old AND }
+\NormalTok{  PREGNANT AND urinary IODINE }\OperatorTok{>=}\StringTok{ }\DecValTok{500}\NormalTok{ g}\OperatorTok{/}\NormalTok{L}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{summary}{%
 \section{Summary}\label{summary}}
@@ -822,73 +1225,74 @@ Given these indicator definition, we propose the following list of indicators to
 
 \caption{\label{tab:indicators}List of proposed indicators for Sudan National Micronutrient Survey}
 \centering
-\begin{tabular}[t]{lll}
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llll}
 \toprule
-\textbf{Category} & \textbf{Indicators} & \textbf{Type}\\
+\textbf{Category} & \textbf{Indicator.variable} & \textbf{Indicator.name} & \textbf{Type}\\
 \midrule
-\rowcolor{gray!6}   & Mild anaemia in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
- & Moderate anaemia in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Severe anaemia in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
- & Mild anaemia in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Moderate anaemia in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
- & Severe anaemia in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Mild anaemia in pregnant carers & Proportion\\
-\cmidrule{2-3}
- & Moderate anaemia in pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-9}{*}{\raggedright\arraybackslash Anaemia} & Severe anaemia in pregnant carers & Proportion\\
-\cmidrule{1-3}
- & Iron deficiency in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Iron deficiency in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\multirow[t]{-3}{*}{\raggedright\arraybackslash Iron deficiency} & Iron deficiency in pregnant carers & Proportion\\
-\cmidrule{1-3}
-\rowcolor{gray!6}   & Iron overload in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
- & Iron overload in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Iron overload} & Iron overload in pregnant carers & Proportion\\
-\cmidrule{1-3}
- & Active inflammation in children 6-59 months old & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Active inflammation in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\multirow[t]{-3}{*}{\raggedright\arraybackslash Inflammation} & Active inflammation in pregnant carers & Proportion\\
-\cmidrule{1-3}
-\rowcolor{gray!6}   & Hypocalcemia in children 12-59 months old & Proportion\\
-\cmidrule{2-3}
- & Hypocalcemia in non-pregnant women carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Calcium deficiency} & Hypocalcemia in pregnant carers & Proportion\\
-\cmidrule{1-3}
- & Hypercalcemia in children 12-59 months old & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Hypercalcemia in non-pregnant women carers & Proportion\\
-\cmidrule{2-3}
-\multirow[t]{-3}{*}{\raggedright\arraybackslash Calcium overload} & Hypercalcemia in pregnant carers & Proportion\\
-\cmidrule{1-3}
-\rowcolor{gray!6}   & Mild iodine deficiency in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
- & Moderate iodine deficiency in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}   & Severe iodine deficiency in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
- & Iodine deficiency in pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-5}{*}{\raggedright\arraybackslash Iodine deficiency} & Iodine deficiency in lactating carers & Proportion\\
-\cmidrule{1-3}
- & Excessive iodine in non-pregnant carers & Proportion\\
-\cmidrule{2-3}
-\rowcolor{gray!6}  \multirow[t]{-2}{*}{\raggedright\arraybackslash Iodine excess} & Excessive iodine in pregnant carers & Proportion\\
+\rowcolor{gray!6}   & AN1A & Mild anaemia in children 6-59 months & Proportion\\
+\cmidrule{2-4}
+ & AN2B & Mild anaemia in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & AN3C & Mild anaemia in pregnant carers & Proportion\\
+\cmidrule{2-4}
+ & AN1A & Moderate anaemia in children 6-59 months & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & AN2B & Moderate anaemia in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+ & AN3C & Moderate anaemia in pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & AN1A & Severe anaemia in children 6-59 months & Proportion\\
+\cmidrule{2-4}
+ & AN2B & Severe anaemia in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}  \multirow[t]{-9}{*}{\raggedright\arraybackslash Anaemia} & AN3C & Severe anaemia in pregnant carers & Proportion\\
+\cmidrule{1-4}
+ & IR1A & Iron deficiency in children 6-59 months & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & IR1B & Iron deficiency in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\multirow[t]{-3}{*}{\raggedright\arraybackslash Iron deficiency} & IR1C & Iron deficiency in pregnant carers & Proportion\\
+\cmidrule{1-4}
+\rowcolor{gray!6}   & IR2A & Iron overload in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\multirow[t]{-2}{*}{\raggedright\arraybackslash Iron overload} & IR2B & Iron overload in pregnant carers & Proportion\\
+\cmidrule{1-4}
+\rowcolor{gray!6}   & AI1 & Acute inflammation in children 6-59 months & Proportion\\
+\cmidrule{2-4}
+ & AI2 & Acute inflammation in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Inflammation} & AI3 & Acute inflammation in pregnant carers & Proportion\\
+\cmidrule{1-4}
+ & CA1A & Hypocalcemia in children 12-59 months old & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & CA1B & Hypocalcemia in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\multirow[t]{-3}{*}{\raggedright\arraybackslash Calcium deficiency} & CA1C & Hypocalcemia in pregnant carers & Proportion\\
+\cmidrule{1-4}
+\rowcolor{gray!6}   & CA2A & Hypercalcemia in children 12-59 months old & Proportion\\
+\cmidrule{2-4}
+ & CA2B & Hypercalcemia in non-pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}  \multirow[t]{-3}{*}{\raggedright\arraybackslash Calcium overload} & CA2C & Hypercalcemia in pregnant carers & Proportion\\
+\cmidrule{1-4}
+ & ID1A & Insufficient iodine in children less than 24 months old & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & ID1B & Insufficient iodine in lactating carers & Proportion\\
+\cmidrule{2-4}
+ & ID1C & Insufficient iodine in pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}   & ID2 & Mild iodine deficiency in non-pregnant non-lactating carers & Proportion\\
+\cmidrule{2-4}
+ & ID3 & Moderate iodine deficiency in non-pregnant non-lactating carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}  \multirow[t]{-6}{*}{\raggedright\arraybackslash Iodine deficiency} & ID4 & Severe iodine deficiency in non-pregnant non-lactating carers & Proportion\\
+\cmidrule{1-4}
+ & ID5A & Excessive iodine in pregnant carers & Proportion\\
+\cmidrule{2-4}
+\rowcolor{gray!6}  \multirow[t]{-2}{*}{\raggedright\arraybackslash Iodine excess} & ID5B & Excessive iodine in non-pregnant non-lactating carers & Proportion\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \hypertarget{results-presentation}{%
