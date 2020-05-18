@@ -409,37 +409,41 @@ The anaemia indicators are:
 \centering
 \begin{tabular}[t]{ll}
 \toprule
-\textbf{} & \textbf{}\\
+\textbf{Indicator variable} & \textbf{Indicator name}\\
 \midrule
-\rowcolor{gray!6}  AN1 & Mild anaemia in children 6-59 months\\
-AN1 & Mild anaemia in non-pregnant carers\\
-\rowcolor{gray!6}  AN1 & Mild anaemia in pregnant carers\\
-AN2 & Moderate anaemia in children 6-59 months\\
-\rowcolor{gray!6}  AN2 & Moderate anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN1A & Mild anaemia in children 6-59 months\\
+AN1B & Mild anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN1C & Mild anaemia in pregnant carers\\
+AN2A & Moderate anaemia in children 6-59 months\\
+\rowcolor{gray!6}  AN2B & Moderate anaemia in non-pregnant carers\\
 \addlinespace
-AN2 & Moderate anaemia in pregnant carers\\
-\rowcolor{gray!6}  AN3 & Severe anaemia in children 6-59 months\\
-AN3 & Severe anaemia in non-pregnant carers\\
-\rowcolor{gray!6}  AN3 & Severe anaemia in pregnant carers\\
+AN2C & Moderate anaemia in pregnant carers\\
+\rowcolor{gray!6}  AN3A & Severe anaemia in children 6-59 months\\
+AN3B & Severe anaemia in non-pregnant carers\\
+\rowcolor{gray!6}  AN3C & Severe anaemia in pregnant carers\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The anaemia indicators are calculated using data on \textbf{AGE}, \textbf{SEX}, \textbf{PREGNANCY} status and \textbf{HB} measurement (in g/L) of the respondent and on the \textbf{ALTITUDE} (in metres) of the location where the respondent resides.
+The anaemia indicators are calculated using data on \textbf{AGE}, \textbf{PREGNANCY} status and \textbf{HB} measurement (in g/L) of the respondent and on the \textbf{ALTITUDE} (in metres) of the location where the respondent resides.
+
+\newpage
 
 \hypertarget{an1-mild-anaemia}{%
 \subsubsection{AN1: Mild anaemia}\label{an1-mild-anaemia}}
 
-Indicator \textbf{AN1} is TRUE if either\ldots{}
+\hypertarget{an1a-mild-anaemia-in-children-6-59-months}{%
+\paragraph{AN1A: Mild anaemia in children 6-59 months}\label{an1a-mild-anaemia-in-children-6-59-months}}
+
+Indicator \textbf{AN1A} is TRUE if either\ldots{}
 
 \begin{itemize}
 \item
-  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+  \textbf{AGE} of respondent is between 6-59 months old \textbf{\emph{and}}
 
   \begin{itemize}
   \item
-    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 100 g/L \textbf{\emph{and}} \textbf{HB}
-    is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 100 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
   \item
     \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 102 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 111 g/L; \textbf{\emph{or}},
   \item
@@ -455,8 +459,16 @@ Indicator \textbf{AN1} is TRUE if either\ldots{}
   \item
     \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 135 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
   \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L; \textbf{\emph{or}},
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L.
   \end{itemize}
+\end{itemize}
+
+\newpage
+
+\hypertarget{an1b-mild-anaemia-in-non-pregnant-carers}{%
+\paragraph{AN1B: Mild anaemia in non-pregnant carers}\label{an1b-mild-anaemia-in-non-pregnant-carers}}
+
+\begin{itemize}
 \item
   \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
 
@@ -482,14 +494,52 @@ Indicator \textbf{AN1} is TRUE if either\ldots{}
   \end{itemize}
 \end{itemize}
 
-\hypertarget{an2-moderate-anaemia}{%
-\subsubsection{AN2: Moderate anaemia}\label{an2-moderate-anaemia}}
+\newpage
 
-Indicator \textbf{AN2} is TRUE if either\ldots{}
+\hypertarget{an1c-mild-anaemia-in-pregnant-carers}{%
+\paragraph{AN1C: Mild anaemia in pregnant carers}\label{an1c-mild-anaemia-in-pregnant-carers}}
+
+Indicator \textbf{AN1C} is TRUE if either\ldots{}
 
 \begin{itemize}
 \item
-  \{(\textbf{AGE} of respondent is between 6-59 months old) \textbf{\emph{or}} (\textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{FEMALE} \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 100 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 109 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 102 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 111 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 114 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 108 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 117 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 113 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 122 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 119 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 128 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 127 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 136 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 135 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 145 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 154 g/L.
+  \end{itemize}
+\end{itemize}
+
+\newpage
+
+\hypertarget{an2-moderate-anaemia}{%
+\subsubsection{AN2: Moderate anaemia}\label{an2-moderate-anaemia}}
+
+\hypertarget{an2a-moderate-anaemia-in-children-6-59-months}{%
+\paragraph{AN2A: Moderate anaemia in children 6-59 months}\label{an2a-moderate-anaemia-in-children-6-59-months}}
+
+Indicator \textbf{AN2A} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 6-59 months old \textbf{\emph{and}}
 
   \begin{itemize}
   \item
@@ -510,8 +560,16 @@ Indicator \textbf{AN2} is TRUE if either\ldots{}
   \item
     \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 134 g/L; \textbf{\emph{or}},
   \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{\emph{\(\leq\)}} 144 g/L; \textbf{\emph{or}},
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{\emph{\(\leq\)}} 144 g/L.
   \end{itemize}
+\end{itemize}
+
+\newpage
+
+\hypertarget{an2b-moderate-anaemia-in-non-pregnant-carers}{%
+\paragraph{AN2B: Moderate anaemia in non-pregnant carers}\label{an2b-moderate-anaemia-in-non-pregnant-carers}}
+
+\begin{itemize}
 \item
   \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
 
@@ -537,10 +595,49 @@ Indicator \textbf{AN2} is TRUE if either\ldots{}
   \end{itemize}
 \end{itemize}
 
+\newpage
+
+\hypertarget{an2c-moderate-anaemia-in-pregnant-carers}{%
+\paragraph{AN2C: Moderate anaemia in pregnant carers}\label{an2c-moderate-anaemia-in-pregnant-carers}}
+
+Indicator \textbf{AN2C} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT})\} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 70 g/L \textbf{\emph{and}} \textbf{HB}
+    is \textbf{\emph{\(\leq\)}} 99 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 72 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 101 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 75 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 104 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 78 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 107 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 83 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 112 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 89 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 118 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 97 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 126 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 105 g/L \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\leq\)}} 134 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\(\geq\)}} 115 g/L \textbf{\emph{and}} \textbf{\emph{\(\leq\)}} 144 g/L.
+  \end{itemize}
+\end{itemize}
+
+\newpage
+
 \hypertarget{an3-severe-anaemia}{%
 \subsubsection{AN3: Severe anaemia}\label{an3-severe-anaemia}}
 
-Indicator \textbf{AN3} is TRUE if either\ldots{}
+\hypertarget{an3a-severe-anaemia-in-children-6-59-months}{%
+\paragraph{AN3A: Severe anaemia in children 6-59 months}\label{an3a-severe-anaemia-in-children-6-59-months}}
+
+Indicator \textbf{AN3A} is TRUE if either\ldots{}
 
 \begin{itemize}
 \item
@@ -564,8 +661,16 @@ Indicator \textbf{AN3} is TRUE if either\ldots{}
   \item
     \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 105 g/L; \textbf{\emph{or}},
   \item
-    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L; \textbf{\emph{or}},
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L.
   \end{itemize}
+\end{itemize}
+
+\newpage
+
+\hypertarget{an3b-severe-anaemia-in-non-pregnant-carers}{%
+\paragraph{AN3B: Severe anaemia in non-pregnant carers}\label{an3b-severe-anaemia-in-non-pregnant-carers}}
+
+\begin{itemize}
 \item
   \textbf{AGE} of respondent is between 15 and 49 years \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
 
@@ -591,6 +696,41 @@ Indicator \textbf{AN3} is TRUE if either\ldots{}
   \end{itemize}
 \end{itemize}
 
+\newpage
+
+\hypertarget{an3c-severe-anaemia-in-pregnant-carers}{%
+\paragraph{AN3C: Severe anaemia in pregnant carers}\label{an3c-severe-anaemia-in-pregnant-carers}}
+
+Indicator \textbf{AN3C} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 70 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 1500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 72 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 1500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 75 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 2500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 78 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 2500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 83 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 3500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 89 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 3500 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4000 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 97 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{\(\geq\)}} 4000 metres \textbf{\emph{and}} \textbf{ALTITUDE} is \textbf{\emph{\textless{}}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 105 g/L; \textbf{\emph{or}},
+  \item
+    \textbf{ALTITUDE} is \textbf{\emph{=}} 4500 metres \textbf{\emph{and}} \textbf{HB} is \textbf{\emph{\textless{}}} 115 g/L.
+  \end{itemize}
+\end{itemize}
+
+\newpage
+
 \hypertarget{serum-iron-stores-indicaotrs}{%
 \subsection{Serum iron stores indicaotrs}\label{serum-iron-stores-indicaotrs}}
 
@@ -604,23 +744,24 @@ The serum iron stores indicators are:
 \toprule
 \textbf{} & \textbf{}\\
 \midrule
-\rowcolor{gray!6}  IR1 & Iron deficiency in children 6-59 months\\
-IR1 & Iron deficiency in non-pregnant carers\\
-\rowcolor{gray!6}  IR1 & Iron deficiency in pregnant carers\\
-IR2 & Iron overload in children 6-59 months\\
-\rowcolor{gray!6}  IR2 & Iron overload in non-pregnant carers\\
-\addlinespace
-IR2 & Iron overload in pregnant carers\\
+\rowcolor{gray!6}  IR1A & Iron deficiency in children 6-59 months\\
+IR1B & Iron deficiency in non-pregnant carers\\
+\rowcolor{gray!6}  IR1C & Iron deficiency in pregnant carers\\
+IR2A & Iron overload in non-pregnant carers\\
+\rowcolor{gray!6}  IR2B & Iron overload in pregnant carers\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Serum iron stores indicators require data on \textbf{AGE}, \textbf{SEX}, \textbf{CRP} and serum \textbf{FERRITIN} concentration.
+Serum iron stores indicators require data on \textbf{AGE}, \textbf{PREGNANCY} status, \textbf{CRP} and serum \textbf{FERRITIN} concentration.
 
 \hypertarget{ir1-iron-deficiency-indicators}{%
 \subsubsection{IR1: Iron deficiency indicators}\label{ir1-iron-deficiency-indicators}}
 
-The indicator IR1 is TRUE if either\ldots{}
+\hypertarget{ir1a-iron-deficiency-in-children-6-59-months}{%
+\paragraph{IR1A: Iron deficiency in children 6-59 months}\label{ir1a-iron-deficiency-in-children-6-59-months}}
+
+The indicator IR1A is TRUE if either\ldots{}
 
 \begin{itemize}
 \item
@@ -630,10 +771,31 @@ The indicator IR1 is TRUE if either\ldots{}
   \item
     \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 12 µg/L; or,
   \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 19.8 µg/L; or,
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 19.8 µg/L.
   \end{itemize}
+\end{itemize}
+
+\hypertarget{ir1b-iron-deficiency-in-non-pregnant-carers}{%
+\paragraph{IR1B: Iron deficiency in non-pregnant carers}\label{ir1b-iron-deficiency-in-non-pregnant-carers}}
+
+\begin{itemize}
 \item
-  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}}
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 15 µg/L; or,
+  \item
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textless{}}} 24.75 µg/L.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ir1c-iron-deficiency-in-pregnant-carers}{%
+\paragraph{IR1C: Iron deficiency in pregnant carers}\label{ir1c-iron-deficiency-in-pregnant-carers}}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}}
 
   \begin{itemize}
   \item
@@ -646,26 +808,37 @@ The indicator IR1 is TRUE if either\ldots{}
 \hypertarget{ir2-iron-overload-indicators}{%
 \subsubsection{IR2: Iron overload indicators}\label{ir2-iron-overload-indicators}}
 
-The indicator IR2 is TRUE if either\ldots{}
+\hypertarget{ir2a-iron-overload-in-non-pregnant-carers}{%
+\paragraph{IR2A: Iron overload in non-pregnant carers}\label{ir2a-iron-overload-in-non-pregnant-carers}}
+
+The indicator \textbf{IR2A} is TRUE if either\ldots{}
 
 \begin{itemize}
 \item
-  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{MALE}} \textbf{\emph{and}}
-
-  \begin{itemize}
-  \item
-    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 200 µg/L; or,
-  \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 330 µg/L; or,
-  \end{itemize}
-\item
-  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{SEX} is \textbf{\emph{FEMALE}} \textbf{\emph{and}}
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{NOT PREGNANT} \textbf{\emph{and}}
 
   \begin{itemize}
   \item
     \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 150 µg/L; or,
   \item
-    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 247.5 µg/L
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 247.5 µg/L.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ir2b-iron-overload-in-pregnant-carers}{%
+\paragraph{IR2B: Iron overload in pregnant carers}\label{ir2b-iron-overload-in-pregnant-carers}}
+
+The indicator \textbf{IR2B} is TRUE if either\ldots{}
+
+\begin{itemize}
+\item
+  \textbf{AGE} of respondent is between 15 and 49 years old \textbf{\emph{and}} \textbf{PREGNANT} \textbf{\emph{and}}
+
+  \begin{itemize}
+  \item
+    \textbf{CRP} \textbf{\emph{\(\leq\)}} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 150 µg/L; or,
+  \item
+    \textbf{CRP} \textgreater{} 5 mg/L \textbf{\emph{and}} serum \textbf{FERRITIN} is \textbf{\emph{\textgreater{}}} 247.5 µg/L.
   \end{itemize}
 \end{itemize}
 

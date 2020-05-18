@@ -326,7 +326,7 @@ Given the biomarkers variables described above, we propose the following indicat
 The anaemia indicators are:
 
 ```{r anaemia1, echo = FALSE, eval = TRUE}
-col1 <- c(rep("AN1", 3), rep("AN2", 3), rep("AN3", 3))
+col1 <- c("AN1A", "AN1B", "AN1C", "AN2A", "AN2B", "AN2C", "AN3A", "AN3B", "AN3C")
 col2 <- c("Mild anaemia in children 6-59 months", 
           "Mild anaemia in non-pregnant carers", 
           "Mild anaemia in pregnant carers",
@@ -339,10 +339,13 @@ col2 <- c("Mild anaemia in children 6-59 months",
 
 tab <- data.frame(col1, col2, stringsAsFactors = FALSE)
 
+indicatorTable <- data.frame()
+indicatorTable <- rbind(indicatorTable, tab)
+
 knitr::kable(x = tab,
              booktabs = TRUE,
              caption = "Anaemia indicators",
-             col.names = c("", ""),
+             col.names = c("Indicator variable", "Indicator name"),
              row.names = FALSE,
              format = "latex") %>%
   kableExtra::kable_styling(latex_options = c("HOLD_position", "striped")) %>%
@@ -350,16 +353,19 @@ knitr::kable(x = tab,
   kableExtra::row_spec(row = 0, bold = TRUE)
 ```
 
-The anaemia indicators are calculated using data on **AGE**, **SEX**, **PREGNANCY** status and **HB** measurement (in g/L) of the respondent and on the **ALTITUDE** (in metres) of the location where the respondent resides.
+The anaemia indicators are calculated using data on **AGE**, **PREGNANCY** status and **HB** measurement (in g/L) of the respondent and on the **ALTITUDE** (in metres) of the location where the respondent resides.
+
+\newpage
 
 ### AN1: Mild anaemia
 
-Indicator **AN1** is TRUE if either...
+#### AN1A: Mild anaemia in children 6-59 months
 
-* {(**AGE** of respondent is between 6-59 months old) ***or*** (**AGE** of respondent is between 15 and 49 years old ***and*** **SEX** is **FEMALE** ***and*** **PREGNANT**)} ***and***
+Indicator **AN1A** is TRUE if either...
 
-     * **ALTITUDE** is ***<*** 1000 metres ***and*** **HB** is ***$\geq$*** 100 g/L ***and*** **HB** 
-     is ***$\leq$*** 109 g/L; ***or***,
+* **AGE** of respondent is between 6-59 months old ***and***
+
+     * **ALTITUDE** is ***<*** 1000 metres ***and*** **HB** is ***$\geq$*** 100 g/L ***and*** **HB** is ***$\leq$*** 109 g/L; ***or***,
      
      * **ALTITUDE** is ***$\geq$*** 1000 metres ***and*** **ALTITUDE** is ***<*** 1500 metres ***and*** **HB** is ***$\geq$*** 102 g/L ***and*** **HB** is ***$\leq$*** 111 g/L; ***or***,
      
@@ -375,7 +381,11 @@ Indicator **AN1** is TRUE if either...
 
      * **ALTITUDE** is ***$\geq$*** 4000 metres ***and*** **ALTITUDE** is ***<*** 4500 metres ***and*** **HB** is ***$\geq$*** 135 g/L ***and*** **HB** is ***$\leq$*** 144 g/L; ***or***,
 
-     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 145 g/L ***and*** **HB** is ***$\leq$*** 154 g/L; ***or***,
+     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 145 g/L ***and*** **HB** is ***$\leq$*** 154 g/L.
+
+\newpage
+
+#### AN1B: Mild anaemia in non-pregnant carers
 
 * **AGE** of respondent is between 15 and 49 years ***and*** **SEX** is ***FEMALE*** ***and*** **NOT PREGNANT** ***and***
 
@@ -397,11 +407,41 @@ Indicator **AN1** is TRUE if either...
 
      * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 155 g/L and **HB** is ***$\leq$*** 164 g/L.
 
+\newpage
+
+#### AN1C: Mild anaemia in pregnant carers
+
+Indicator **AN1C** is TRUE if either...
+
+* **AGE** of respondent is between 15 and 49 years old ***and*** **PREGNANT** ***and***
+
+     * **ALTITUDE** is ***<*** 1000 metres ***and*** **HB** is ***$\geq$*** 100 g/L ***and*** **HB** is ***$\leq$*** 109 g/L; ***or***,
+     
+     * **ALTITUDE** is ***$\geq$*** 1000 metres ***and*** **ALTITUDE** is ***<*** 1500 metres ***and*** **HB** is ***$\geq$*** 102 g/L ***and*** **HB** is ***$\leq$*** 111 g/L; ***or***,
+     
+     * **ALTITUDE** is ***$\geq$*** 1500 metres ***and*** **ALTITUDE** is ***<*** 2000 metres ***and*** **HB** is ***$\geq$*** 105 g/L ***and*** **HB** is ***$\leq$*** 114 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 2000 metres ***and*** **ALTITUDE** is ***<*** 2500 metres ***and*** **HB** is ***$\geq$*** 108 g/L ***and*** **HB** is ***$\leq$*** 117 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 2500 metres ***and*** **ALTITUDE** is ***<*** 3000 metres ***and*** **HB** is ***$\geq$*** 113 g/L ***and*** **HB** is ***$\leq$*** 122 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 3000 metres ***and*** **ALTITUDE** is ***<*** 3500 metres ***and*** **HB** is ***$\geq$*** 119 g/L ***and*** **HB** is ***$\leq$*** 128 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 3500 metres ***and*** **ALTITUDE** is ***<*** 4000 metres ***and*** **HB** is ***$\geq$*** 127 g/L ***and*** **HB** is ***$\leq$*** 136 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 4000 metres ***and*** **ALTITUDE** is ***<*** 4500 metres ***and*** **HB** is ***$\geq$*** 135 g/L ***and*** **HB** is ***$\leq$*** 144 g/L; ***or***,
+
+     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 145 g/L ***and*** **HB** is ***$\leq$*** 154 g/L.
+
+\newpage
+
 ### AN2: Moderate anaemia
 
-Indicator **AN2** is TRUE if either...
+#### AN2A: Moderate anaemia in children 6-59 months
 
-* {(**AGE** of respondent is between 6-59 months old) ***or*** (**AGE** of respondent is between 15 and 49 years old ***and*** **SEX** is **FEMALE** ***and*** **PREGNANT**)} ***and***
+Indicator **AN2A** is TRUE if either...
+
+* **AGE** of respondent is between 6-59 months old ***and***
 
      * **ALTITUDE** is ***<*** 1000 metres ***and*** **HB** is ***$\geq$*** 70 g/L ***and*** **HB** 
      is ***$\leq$*** 99 g/L; ***or***,
@@ -420,7 +460,11 @@ Indicator **AN2** is TRUE if either...
 
      * **ALTITUDE** is ***$\geq$*** 4000 metres ***and*** **ALTITUDE** is ***<*** 4500 metres ***and*** **HB** is ***$\geq$*** 105 g/L ***and*** **HB** is ***$\leq$*** 134 g/L; ***or***,
 
-     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 115 g/L ***and*** ***$\leq$*** 144 g/L; ***or***,
+     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 115 g/L ***and*** ***$\leq$*** 144 g/L.
+
+\newpage
+
+#### AN2B: Moderate anaemia in non-pregnant carers
 
 * **AGE** of respondent is between 15 and 49 years ***and*** **SEX** is ***FEMALE*** ***and*** **NOT PREGNANT** ***and***
 
@@ -442,9 +486,40 @@ Indicator **AN2** is TRUE if either...
 
      * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 125 g/L and **HB** is ***$\leq$*** 154 g/L.
 
+\newpage
+
+#### AN2C: Moderate anaemia in pregnant carers
+
+Indicator **AN2C** is TRUE if either...
+
+* **AGE** of respondent is between 15 and 49 years old ***and*** **PREGNANT**)} ***and***
+
+     * **ALTITUDE** is ***<*** 1000 metres ***and*** **HB** is ***$\geq$*** 70 g/L ***and*** **HB** 
+     is ***$\leq$*** 99 g/L; ***or***,
+     
+     * **ALTITUDE** is ***$\geq$*** 1000 metres ***and*** **ALTITUDE** is ***<*** 1500 metres ***and*** **HB** is ***$\geq$*** 72 g/L ***and*** **HB** is ***$\leq$*** 101 g/L; ***or***,
+     
+     * **ALTITUDE** is ***$\geq$*** 1500 metres ***and*** **ALTITUDE** is ***<*** 2000 metres ***and*** **HB** is ***$\geq$*** 75 g/L ***and*** **HB** is ***$\leq$*** 104 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 2000 metres ***and*** **ALTITUDE** is ***<*** 2500 metres ***and*** **HB** is ***$\geq$*** 78 g/L ***and*** **HB** is ***$\leq$*** 107 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 2500 metres ***and*** **ALTITUDE** is ***<*** 3000 metres ***and*** **HB** is ***$\geq$*** 83 g/L ***and*** **HB** is ***$\leq$*** 112 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 3000 metres ***and*** **ALTITUDE** is ***<*** 3500 metres ***and*** **HB** is ***$\geq$*** 89 g/L ***and*** **HB** is ***$\leq$*** 118 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 3500 metres ***and*** **ALTITUDE** is ***<*** 4000 metres ***and*** **HB** is ***$\geq$*** 97 g/L ***and*** **HB** is ***$\leq$*** 126 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 4000 metres ***and*** **ALTITUDE** is ***<*** 4500 metres ***and*** **HB** is ***$\geq$*** 105 g/L ***and*** **HB** is ***$\leq$*** 134 g/L; ***or***,
+
+     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***$\geq$*** 115 g/L ***and*** ***$\leq$*** 144 g/L.
+
+\newpage
+
 ### AN3: Severe anaemia
 
-Indicator **AN3** is TRUE if either...
+#### AN3A: Severe anaemia in children 6-59 months
+
+Indicator **AN3A** is TRUE if either...
 
 * {(**AGE** of respondent is between 6-59 months old) ***or*** (**AGE** of respondent is between 15 and 49 years old ***and*** **SEX** is **FEMALE** ***and*** **PREGNANT**)} ***and***
 
@@ -464,7 +539,11 @@ Indicator **AN3** is TRUE if either...
 
      * **ALTITUDE** is ***$\geq$*** 4000 metres ***and*** **ALTITUDE** is ***<*** 4500 metres ***and*** **HB** is ***<*** 105 g/L; ***or***,
 
-     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***<*** 115 g/L; ***or***,
+     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***<*** 115 g/L.
+
+\newpage
+
+#### AN3B: Severe anaemia in non-pregnant carers
 
 * **AGE** of respondent is between 15 and 49 years ***and*** **SEX** is ***FEMALE*** ***and*** **NOT PREGNANT** ***and***
 
@@ -486,20 +565,48 @@ Indicator **AN3** is TRUE if either...
 
      * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***<*** 125 g/L.
 
+\newpage
+
+#### AN3C: Severe anaemia in pregnant carers
+
+Indicator **AN3C** is TRUE if either...
+
+* **AGE** of respondent is between 15 and 49 years old ***and*** **PREGNANT** ***and***
+
+     * **ALTITUDE** is ***<*** 1000 metres ***and*** **HB** is ***<*** 70 g/L; ***or***,
+     
+     * **ALTITUDE** is ***$\geq$*** 1000 metres ***and*** **ALTITUDE** is ***<*** 1500 metres ***and*** **HB** is ***<*** 72 g/L; ***or***,
+     
+     * **ALTITUDE** is ***$\geq$*** 1500 metres ***and*** **ALTITUDE** is ***<*** 2000 metres ***and*** **HB** is ***<*** 75 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 2000 metres ***and*** **ALTITUDE** is ***<*** 2500 metres ***and*** **HB** is ***<*** 78 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 2500 metres ***and*** **ALTITUDE** is ***<*** 3000 metres ***and*** **HB** is ***<*** 83 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 3000 metres ***and*** **ALTITUDE** is ***<*** 3500 metres ***and*** **HB** is ***<*** 89 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 3500 metres ***and*** **ALTITUDE** is ***<*** 4000 metres ***and*** **HB** is ***<*** 97 g/L; ***or***,
+
+     * **ALTITUDE** is ***$\geq$*** 4000 metres ***and*** **ALTITUDE** is ***<*** 4500 metres ***and*** **HB** is ***<*** 105 g/L; ***or***,
+
+     * **ALTITUDE** is ***=*** 4500 metres ***and*** **HB** is ***<*** 115 g/L.
+
+\newpage
+
 ## Serum iron stores indicaotrs
 
 The serum iron stores indicators are:
 
 ```{r iron-deficiency, echo = FALSE, eval = TRUE}
-col1 <- c(rep("IR1", 3), rep("IR2", 3))
+col1 <- c("IR1A", "IR1B", "IR1C", "IR2A", "IR2B")
 col2 <- c("Iron deficiency in children 6-59 months", 
           "Iron deficiency in non-pregnant carers", 
           "Iron deficiency in pregnant carers",
-          "Iron overload in children 6-59 months",
           "Iron overload in non-pregnant carers",
           "Iron overload in pregnant carers")
 
 tab <- data.frame(col1, col2, stringsAsFactors = FALSE)
+indicatorTable <- rbind(indicatorTable, tab)
 
 knitr::kable(x = tab,
              booktabs = TRUE,
@@ -511,45 +618,94 @@ knitr::kable(x = tab,
   kableExtra::row_spec(row = 0, bold = TRUE)
 ```
 
-Serum iron stores indicators require data on **AGE**, **SEX**, **CRP** and serum **FERRITIN** concentration.
+Serum iron stores indicators require data on **AGE**, **PREGNANCY** status, **CRP** and serum **FERRITIN** concentration.
 
 ### IR1: Iron deficiency indicators
 
-The indicator IR1 is TRUE if either...
+#### IR1A: Iron deficiency in children 6-59 months
+
+The indicator IR1A is TRUE if either...
 
 * **AGE** of respondent is between 6-59 months old ***and*** 
 
      * **CRP** ***$\leq$*** 5 mg/L ***and*** serum **FERRITIN** is ***<*** 12 µg/L; or,
      
-     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***<*** 19.8 µg/L; or,
+     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***<*** 19.8 µg/L.
+
+#### IR1B: Iron deficiency in non-pregnant carers
      
-* **AGE** of respondent is between 15 and 49 years old ***and***
+* **AGE** of respondent is between 15 and 49 years old ***and*** **NOT PREGNANT** ***and***
 
      * **CRP** ***$\leq$*** 5 mg/L ***and*** serum **FERRITIN** is ***<*** 15 µg/L; or,
      
      * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***<*** 24.75 µg/L.
      
+#### IR1C: Iron deficiency in pregnant carers
+     
+* **AGE** of respondent is between 15 and 49 years old ***and*** **PREGNANT** ***and***
+
+     * **CRP** ***$\leq$*** 5 mg/L ***and*** serum **FERRITIN** is ***<*** 15 µg/L; or,
+     
+     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***<*** 24.75 µg/L.
+
 ### IR2: Iron overload indicators
 
-The indicator IR2 is TRUE if either...
+#### IR2A: Iron overload in non-pregnant carers
 
-* **AGE** of respondent is between 15 and 49 years old ***and*** **SEX** is ***MALE*** ***and***
+The indicator **IR2A** is TRUE if either...
 
-     * **CRP** ***$\leq$*** 5 mg/L ***and*** serum **FERRITIN** is ***>*** 200 µg/L; or,
-     
-     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***>*** 330 µg/L; or,
-
-* **AGE** of respondent is between 15 and 49 years old ***and*** **SEX** is ***FEMALE*** ***and***
+* **AGE** of respondent is between 15 and 49 years old ***and*** **NOT PREGNANT** ***and***
 
      * **CRP** ***$\leq$*** 5 mg/L ***and*** serum **FERRITIN** is ***>*** 150 µg/L; or,
      
-     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***>*** 247.5 µg/L
+     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***>*** 247.5 µg/L.
+     
+#### IR2B: Iron overload in pregnant carers
 
+The indicator **IR2B** is TRUE if either...
+
+* **AGE** of respondent is between 15 and 49 years old ***and*** **PREGNANT** ***and***
+
+     * **CRP** ***$\leq$*** 5 mg/L ***and*** serum **FERRITIN** is ***>*** 150 µg/L; or,
+     
+     * **CRP** > 5 mg/L ***and*** serum **FERRITIN** is ***>*** 247.5 µg/L.
+     
 ## Acute inflammation indicators
 
-Acute inflammation (AI) indicators require serum **CRP** concentration.
+Acute inflammation indicators are:
 
-The indicator AI is TRUE if **CRP** is > 5 mg/L for any respondent type.
+```{r acute-inflammation, echo = FALSE, eval = TRUE}
+col1 <- c("AI1", "AI2", "AI3")
+col2 <- c("Acute inflammation in children 6-59 months", 
+          "Acute inflammation in non-pregnant carers", 
+          "Acute inflammation in pregnant carers")
+
+tab <- data.frame(col1, col2, stringsAsFactors = FALSE)
+indicatorTable <- rbind(indicatorTable, tab)
+
+knitr::kable(x = tab,
+             booktabs = TRUE,
+             caption = "Acute inflammation indicators",
+             col.names = c("", ""),
+             row.names = FALSE,
+             format = "latex") %>%
+  kableExtra::kable_styling(latex_options = c("HOLD_position", "striped")) %>%
+  kableExtra::row_spec(row = 0, bold = TRUE)
+```
+
+Acute inflammation (AI) indicators require **AGE** and **PREGNANCY** status and serum **CRP** concentration.
+
+### AI1: Acute inflammation in children 6-59 months
+
+The indicator AI1 is TRUE if **AGE** is between 6 and 59 months **and** **CRP** is > 5 mg/L.
+
+### AI2: Acute inflammation in non-pregnant carers
+
+The indicator AI2 is TRUE if **AGE** is between 15 and 49 year ***and*** **NOT PREGNANT** and **CRP** is > 5 mg/L.
+
+### AI3: Acute inflammation in pregnant carers
+
+The indicator AI3 is TRUE if **AGE** is between 15 and 49 year ***and*** **PREGNANT** and **CRP** is > 5 mg/L.
 
 ## Calcium stores indicators
 
@@ -743,9 +899,9 @@ ggplot(data = hbData, mapping = aes(x = state, y = hb)) +
   geom_violin(trim = TRUE) +
   #geom_jitter(shape = 20, position = position_jitter(0.05)) +
   geom_boxplot(width = 0.2) +
-  geom_hline(yintercept = 11, colour = "darkgreen", linetype = 2, size = 1.5) + 
-  geom_hline(yintercept = 10, colour = "orange", linetype = 2, size = 1.5) +
-  geom_hline(yintercept = 7, colour = "red", linetype = 2, size = 1.5) +
+  #geom_hline(yintercept = 10, colour = "orange", linetype = 2, size = 1.5) +
+  #geom_hline(yintercept = 11, colour = "darkgreen", linetype = 2, size = 1.5) + 
+  #geom_hline(yintercept = 7, colour = "red", linetype = 2, size = 1.5) +
   themeSettings
 ```
 
