@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![](https://img.shields.io/badge/version-v0.2.3-orange)](https://github.com/ernestguevarra/sudanMNreview/tree/v0.2.3)
+[![DOI](https://zenodo.org/badge/262213688.svg)](https://zenodo.org/badge/latestdoi/262213688)
 <!-- badges: end -->
 
 This repository includes the following:
